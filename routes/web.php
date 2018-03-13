@@ -23,7 +23,3 @@ Route::prefix('admin')->group(function () {
     Route::get('/', 'AdminController@index')->name('home_admin');
     Route::get('/paginas', 'PaginasController@index')->name('admin_paginas');
 });
-
-Auth::routes();
-
-//Route::get('/home', 'HomeController@index')->name('home');

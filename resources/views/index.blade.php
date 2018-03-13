@@ -701,4 +701,4 @@
 
 </section>
 
-@endsection
+@stop
