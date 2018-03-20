@@ -12,14 +12,14 @@
                     @foreach(session('categorias') as $categoria)
                         @if($categoria->paginas->isEmpty())
                             <li class="color-theme active">
-                                <a href="{{ $categoria->url != '#' ? route($categoria->url) : '#' }}">Inicio <span class="nav-line"></span></a>
+                                <a href="{{ $categoria->url != '#' ? $categoria->url : '#' }}">Inicio <span class="nav-line"></span></a>
                             </li>
                         @else
                             <li class="dropdown color-2">
                                 <a href="#" class="dropdown-toggle" data-hover="dropdown">{{ $categoria->nome }}<span class="nav-line"></span></a>
                                 <ul class="dropdown-menu animated fadeInLeft">
                                   @foreach($categoria->paginas as $pagina)
-                                    <li><a href="{{ $pagina->url != '#' ? route($pagina->url) : '#' }}">{{ $pagina->nome }}</a></li>
+                                    <li><a href="{{ $pagina->url != '#' ? $pagina->url : '#' }}">{{ $pagina->nome }}</a></li>
                                   @endforeach
                                 </ul>
                             </li>

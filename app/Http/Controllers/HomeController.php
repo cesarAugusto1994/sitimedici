@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Categorias;
+use App\Noticias;
 
 class HomeController extends Controller
 {
@@ -14,11 +15,13 @@ class HomeController extends Controller
      */
     public function __construct(Request $request)
     {
-        session()->forget('categorias');
+        //
+        $categorias = session()->get('categorias');
 
-        session()->put('categorias', Categorias::all());
+        if(!$categorias) {
+            session()->put('categorias', Categorias::all());
+        }
 
-        session()->flash('status', 'Task was successful!');
     }
 
     /**
@@ -28,7 +31,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('index');
+        return view('welcome')
+        ->with('noticias', $this->getNoticias()->take(4))
+        ->with('noticiaPrincipal', $this->getNoticias()->first())
+        ->with('listaNoticias', $this->getNoticias()->take(-6));
+    }
+
+    public static function getNoticias()
+    {
+          $listaNoticias = Noticias::orderByDesc('created_at')->get();
+
+          return $listaNoticias;
     }
 
     public function nossaHistoria()

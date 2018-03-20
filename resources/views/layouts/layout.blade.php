@@ -119,14 +119,9 @@
 
                 <div id="divBreakingNewsTicker" class="content">
                     <ul id="js-news" class="js-hidden">
-                        <li><a href="#">
-                            <img src="" data-src="/js/holder.js/50x41" class="animated fadeIn" />Noticia 1</a></li>
-                        <li><a href="#">
-                            <img src="" data-src="/js/holder.js/50x41" class="animated fadeIn" />Noticia 2</a></li>
-                        <li><a href="post-review.html">
-                            <img src="" data-src="/js/holder.js/50x41" class="animated fadeIn" />Noticia 3</a></li>
-                        <li><a href="#">
-                            <img src="" data-src="/js/holder.js/50x41" class="animated fadeIn" />Noticia 4</a></li>
+                        @foreach($noticias as $noticia)
+                            <li><a href="#">{{ $noticia->titulo }}</a></li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
@@ -135,10 +130,10 @@
         <!-- Site Logo -->
         <header class="container header-logo">
             <div class="logo" itemscope itemtype="http://schema.org/Brand">
-                <h1 class="hidden" itemprop="name">SitiMedici</h1>
+                <h1 class="hidden" itemprop="name">Sitimeci</h1>
                 <a href="#">
-                    <img itemprop="logo" class="site-logo" src="http://sitimeci.com.br/lgo_web.jpg" data-src="http://sitimeci.com.br/lgo_web.jpg" alt="main-logo"  style="width: 200px; height: 90px;"/>
-                    <img itemprop="logo" class="site-logo-retina" src="http://sitimeci.com.br/lgo_web.jpg" data-src="http://sitimeci.com.br/lgo_web.jpg" alt="main-logo" style="width: 200px; height: 90px;" />
+                    <img itemprop="logo" class="site-logo" src="images/logo_web.jpg" data-src="images/logo_web.jpg" alt="main-logo"  />
+                    <img itemprop="logo" class="site-logo-retina" src="images/logo_web.jpg" data-src="images/logo_web.jpg" alt="main-logo"  />
                 </a>
             </div>
 

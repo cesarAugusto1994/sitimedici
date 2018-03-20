@@ -4,7 +4,7 @@
         <div class="camera_caption fadeFromBottom">
             <h2 class="hidden">Slider Section</h2>
 
-            <h3><a href="#">SitiMedici</a></h3>
+            <h3><a href="#">SitiMeci</a></h3>
             <!--<span class="btn-srp color-theme"><a href="#cat">Movies</a></span>-->
 
         </div>
