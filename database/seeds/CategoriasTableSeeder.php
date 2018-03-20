@@ -15,10 +15,10 @@ class CategoriasTableSeeder extends Seeder
         $categorias = [
             [
                 'nome' => 'Inicio',
-                'url' => '#',
+                'url' => '/',
             ],
             [
-                'nome' => 'SitiMedici',
+                'nome' => 'SitiMeci',
                 'url' => '#',
             ],
             [

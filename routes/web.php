@@ -22,4 +22,14 @@ Auth::routes();
 Route::prefix('admin')->group(function () {
     Route::get('/', 'AdminController@index')->name('home_admin');
     Route::get('/paginas', 'PaginasController@index')->name('admin_paginas');
+
+    Route::get('/noticias', 'NoticiasController@index')->name('noticias');
+    Route::get('/noticias/form/create', 'NoticiasController@create')->name('noticia_create');
+    Route::post('/noticias/store', 'NoticiasController@store')->name('noticia_store');
+
+    Route::get('/noticia/{id}', 'NoticiasController@show')->name('noticia');
 });
+
+Auth::routes();
+
+//Route::get('/home', 'HomeController@index')->name('home');

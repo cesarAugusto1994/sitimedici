@@ -15,17 +15,17 @@ class PaginasTableSeeder extends Seeder
         $paginas = [
             [
                 'nome' => 'Nossa Historia',
-                'url' => '#',
+                'url' => '/nossa-historia',
                 'categoria_id' => 2,
             ],
             [
                 'nome' => 'Diretoria',
-                'url' => '#',
+                'url' => '/diretoria',
                 'categoria_id' => 2,
             ],
             [
                 'nome' => 'Fale Conosco',
-                'url' => '#',
+                'url' => '/fale-conosco',
                 'categoria_id' => 2,
             ],
 
