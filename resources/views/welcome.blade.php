@@ -21,7 +21,7 @@
                     <figure class="sec-image">
 
                         <a class="post-thumbnail">
-                            <img src="" data-src="holder.js/280x195" src="{{ App\Http\Controllers\HomeController::getNoticias()->first()->imagem_1 }}" /></a>
+                            <img src="images/people2.jpg" data-src="images/people2.jpg" src="{{ App\Http\Controllers\HomeController::getNoticias()->first()->imagem_1 }}" /></a>
 
                         <div class="bottom-bar">
                             <span class="btn-srp"><a href="#">Leia mais...</a></span>
@@ -65,7 +65,7 @@
                                         <div class="post-type anim"><i class="icon-location"></i></div>
 
                                         <div class="post-thumbnail border-radius-2px">
-                                            <img class="border-radius-2px" src="" data-src="holder.js/70x65"  @if($noticia->imagem_1) src="/{{ $noticia->imagem_1 }}" @endif />
+                                            <img class="border-radius-2px" src="images/people.jpg" data-src="images/people2.jpg"  @if($noticia->imagem_1) src="/{{ $noticia->imagem_1 }}" @endif />
                                         </div>
 
                                         <a href="#" class="more"></a>
@@ -97,7 +97,7 @@
                                         <div class="post-type anim"><i class="icon-music"></i></div>
 
                                         <div class="post-thumbnail border-radius-2px">
-                                            <img class="border-radius-2px" src="" data-src="holder.js/70x65"  @if($noticia->imagem_1) src="{{ $noticia->imagem_1 }}"  @endif />
+                                            <img class="border-radius-2px" src="images/people2.jpg" data-src="images/people2.jpg"  @if($noticia->imagem_1) src="{{ $noticia->imagem_1 }}"  @endif />
                                         </div>
 
                                         <a href="#" class="more"></a>
@@ -154,7 +154,7 @@
                     <div class="post-item">
                         <article class="post-box clearfix">
                             <a class="post-thumbnail">
-                                <img src="" data-src="holder.js/314x210" /></a>
+                                <img src="images/people2.jpg" data-src="images/people2.jpg" /></a>
 
                             <header class="title-bar">
                                 <h4 class="post-title"><a href="#">{{ $noticia->titulo }}</a></h4>
@@ -279,24 +279,29 @@
                     <div class="post-item">
                         <article class="post-box clearfix">
                             <a class="post-thumbnail">
+                                <img src="images/inline.jpg" data-src="images/inline.jpg" /></a>
+
+                            <div class="title-bar">
+                                <h4 class="post-title"><a href="#">Imagens</a></h4>
+                            </div>
+
+                            <div class="bottom-bar">
+                                <span class="btn-srp"><a href="#">visualizar...</a></span>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="post-item">
+                        <article class="post-box clearfix">
+                            <a class="post-thumbnail">
                                 <img src="" data-src="holder.js/308x210" /></a>
 
                             <div class="title-bar">
-                                <h4 class="post-title"><a href="#">Post With Featured Image</a></h4>
+                                <h4 class="post-title"><a href="#">Outro Post</a></h4>
                             </div>
 
                             <div class="bottom-bar">
                                 <span class="btn-srp"><a href="#">Leia mais...</a></span>
-
-                                <div class="rating">
-                                    <div class="stars retina x-2">
-                                        <div class="gray"><i></i><i></i><i></i><i></i><i></i></div>
-
-                                        <div class="fill" style="width: 90%">
-                                            <div class="light"><i></i><i></i><i></i><i></i><i></i></div>
-                                        </div>
-                                    </div>
-                                </div>
 
                             </div>
                         </article>
@@ -308,21 +313,13 @@
                                 <img src="" data-src="holder.js/308x210" /></a>
 
                             <div class="title-bar">
-                                <h4 class="post-title"><a href="#">Post With Featured Image And Lightbox</a></h4>
+                                <h4 class="post-title"><a href="#">Mais um post</a></h4>
                             </div>
 
                             <div class="bottom-bar">
                                 <span class="btn-srp"><a href="#">Leia mais...</a></span>
 
-                                <div class="rating">
-                                    <div class="stars retina x-2">
-                                        <div class="gray"><i></i><i></i><i></i><i></i><i></i></div>
 
-                                        <div class="fill" style="width: 60%">
-                                            <div class="light"><i></i><i></i><i></i><i></i><i></i></div>
-                                        </div>
-                                    </div>
-                                </div>
 
                             </div>
                         </article>
@@ -334,47 +331,13 @@
                                 <img src="" data-src="holder.js/308x210" /></a>
 
                             <div class="title-bar">
-                                <h4 class="post-title"><a href="#">Post With Youtube Video</a></h4>
+                                <h4 class="post-title"><a href="#">Outro Post</a></h4>
                             </div>
 
                             <div class="bottom-bar">
                                 <span class="btn-srp"><a href="#">Leia mais...</a></span>
 
-                                <div class="rating">
-                                    <div class="stars retina x-2">
-                                        <div class="gray"><i></i><i></i><i></i><i></i><i></i></div>
 
-                                        <div class="fill" style="width: 20%">
-                                            <div class="light"><i></i><i></i><i></i><i></i><i></i></div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </article>
-                    </div>
-
-                    <div class="post-item">
-                        <article class="post-box clearfix">
-                            <a class="post-thumbnail">
-                                <img src="" data-src="holder.js/308x210" /></a>
-
-                            <div class="title-bar">
-                                <h4 class="post-title"><a href="#">Post With Sound Cloud</a></h4>
-                            </div>
-
-                            <div class="bottom-bar">
-                                <span class="btn-srp"><a href="#">Leia mais...</a></span>
-
-                                <div class="rating">
-                                    <div class="stars retina x-2">
-                                        <div class="gray"><i></i><i></i><i></i><i></i><i></i></div>
-
-                                        <div class="fill" style="width: 50%">
-                                            <div class="light"><i></i><i></i><i></i><i></i><i></i></div>
-                                        </div>
-                                    </div>
-                                </div>
 
                             </div>
                         </article>

@@ -132,8 +132,8 @@
             <div class="logo" itemscope itemtype="http://schema.org/Brand">
                 <h1 class="hidden" itemprop="name">Sitimeci</h1>
                 <a href="#">
-                    <img itemprop="logo" class="site-logo" src="logo/logo2.jpg" data-src="logo/logo2.jpg" alt="main-logo"  />
-                    <img itemprop="logo" class="site-logo-retina" src="logo/logo2.jpg" data-src="logo/logo2.jpg" alt="main-logo"  />
+                    <img itemprop="logo" class="site-logo" src="logo/logo2.jpg" data-src="logo/logo2.jpg" alt="main-logo" style="min-width:200px"  />
+                    <img itemprop="logo" class="site-logo-retina" src="logo/logo2.jpg" data-src="logo/logo2.jpg" alt="main-logo" style="min-width:200px"  />
                 </a>
             </div>
 
