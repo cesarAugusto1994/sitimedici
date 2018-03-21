@@ -225,7 +225,7 @@
                 ////you can also use more than one effect, just separate them with commas: 'simpleFade, scrollRight, scrollBottom'
 
                 alignment: 'center',           //topLeft, topCenter, topRight, centerLeft, center, centerRight, bottomLeft, bottomCenter, bottomRight
-                autoAdvance: false, //true, false Auto Play
+                autoAdvance: true, //true, false Auto Play
                 mobileAutoAdvance: true,
                 barDirection: 'leftToRight',   //'leftToRight', 'rightToLeft', 'topToBottom', 'bottomToTop'
                 barPosition: 'bottom',         //'left', 'right', 'top', 'bottom'
