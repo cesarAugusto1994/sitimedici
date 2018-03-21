@@ -3,7 +3,8 @@
     <section class="row footer-widgets">
         <h3 class="hidden">Footer Widgets</h3>
 
-        <div class="col-md-4">
+        <!--<div class="col-md-4">
+        
             <aside class="widget" data-showonscroll="true" data-animation="fadeIn">
                 <div class="widget-title clearfix">
                     <h3 class="hidden">Hidden Title</h3>
@@ -14,6 +15,7 @@
                         <img itemprop="logo" src="http://sitimeci.com.br/lgo_web.jpg" data-src="http://sitimeci.com.br/lgo_web.jpg" style="max-height:90px;max-width:160px;" alt="footer-logo" /></a>
                 </div>
             </aside>
+            -->
 
 <!--
             <aside class="widget" data-showonscroll="true" data-animation="fadeIn">
@@ -79,8 +81,8 @@
                         </ul>
                     </div>
                 </div>
-            </aside>-->
-        </div>
+            </aside>
+        </div>-->
 
         <!--
         <div class="col-md-4">
