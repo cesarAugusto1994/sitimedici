@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Categorias;
-use App\Noticias;
+use App\Models\{Categorias, Noticias, Banner};
+use App\User;
 
 class HomeController extends Controller
 {
@@ -31,7 +31,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('welcome')
+        $banners = Banner::where('ativo', true)->get();
+
+        return view('welcome', compact('banners'))
         ->with('noticias', $this->getNoticias()->take(4))
         ->with('noticiaPrincipal', $this->getNoticias()->first())
         ->with('listaNoticias', $this->getNoticias()->take(-6));

@@ -124,6 +124,11 @@ return [
             'url'         => 'admin/noticias',
             'icon'        => 'file-o',
         ],
+        [
+            'text'        => 'Banners',
+            'url'         => 'admin/banners',
+            'icon'        => 'file-o',
+        ],
         'ACCOUNT SETTINGS',
         [
             'text' => 'Profile',

@@ -1,15 +1,14 @@
 <section id="camera_wrap_1" class="container camera_wrap camera_azure_skin">
 
-    <div data-thumb="" data-src="images/people2.jpg"><!--img-samples/1045x500.png-->
+    @foreach($banners as $banner)
+    <div data-thumb="" data-src="{{ $banner->link }}">
         <div class="camera_caption fadeFromBottom">
-            <h2 class="hidden">Slider Section</h2>
-
             <h3><a href="#">SitiMeci</a></h3>
-            <!--<span class="btn-srp color-theme"><a href="#cat">Movies</a></span>-->
-
         </div>
     </div>
+    @endforeach
 
+    <!--
     <div data-thumb="" data-src="http://www.mybj158.com/wp-content/uploads/2015/05/solid-Estate-Companies.png">
         <div class="camera_caption fadeFromBottom">
             <h3><a href="#">SitiMeci</a></h3>
@@ -28,7 +27,7 @@
         </div>
     </div>
 
-    <!--
+
     <div data-thumb="" data-src="img-samples/1045x500.png">
         <div class="camera_caption fadeFromBottom">
             <div class="meta-info">

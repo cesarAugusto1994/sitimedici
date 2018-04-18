@@ -21,7 +21,7 @@
                     <figure class="sec-image">
 
                         <a class="post-thumbnail">
-                            <img src="images/people2.jpg" data-src="images/people2.jpg" src="{{ App\Http\Controllers\HomeController::getNoticias()->first()->imagem_1 }}" /></a>
+                            <img src="{{ App\Http\Controllers\HomeController::getNoticias()->first()->imagem_1 }}" data-src="{{ App\Http\Controllers\HomeController::getNoticias()->first()->imagem_1 }}" src="{{ App\Http\Controllers\HomeController::getNoticias()->first()->imagem_1 }}" /></a>
 
                         <div class="bottom-bar">
                             <span class="btn-srp"><a href="#">Leia mais...</a></span>
@@ -65,7 +65,7 @@
                                         <div class="post-type anim"><i class="icon-location"></i></div>
 
                                         <div class="post-thumbnail border-radius-2px">
-                                            <img class="border-radius-2px" src="images/people.jpg" data-src="images/people2.jpg"  @if($noticia->imagem_1) src="/{{ $noticia->imagem_1 }}" @endif />
+                                            <img class="border-radius-2px" src="{{ $noticia->imagem_1 }}" data-src="{{ $noticia->imagem_1 }}" />
                                         </div>
 
                                         <a href="#" class="more"></a>
@@ -154,7 +154,7 @@
                     <div class="post-item">
                         <article class="post-box clearfix">
                             <a class="post-thumbnail">
-                                <img src="images/people2.jpg" data-src="images/people2.jpg" /></a>
+                                <img src="{{ $noticia->imagem_1 }}" data-src="{{ $noticia->imagem_1 }}" /></a>
 
                             <header class="title-bar">
                                 <h4 class="post-title"><a href="#">{{ $noticia->titulo }}</a></h4>

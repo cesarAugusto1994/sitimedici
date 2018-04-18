@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Noticias;
+use App\Models\Noticias;
 use Auth;
 
 class NoticiasController extends Controller
@@ -45,9 +45,9 @@ class NoticiasController extends Controller
         $noticia->subtitulo = $data['subtitulo'];
         $noticia->conteudo = $data['conteudo'];
 
-        if(!empty($_FILES['imagem_1'])) {
+        if(!empty($_FILES['imagem_1']) && !empty($_FILES['imagem_1']['name'])) {
 
-          $destino = "images/" . $_FILES['imagem_1']['name'];
+          $destino = "img/" . $_FILES['imagem_1']['name'];
           $arquivo_tmp = $_FILES['imagem_1']['tmp_name'];
 
           move_uploaded_file( $arquivo_tmp, $destino  );
@@ -55,9 +55,9 @@ class NoticiasController extends Controller
           $noticia->imagem_1 = $destino;
         }
 
-        if(!empty($_FILES['imagem_2'])) {
+        if(!empty($_FILES['imagem_2']) && !empty($_FILES['imagem_2']['name'])) {
 
-          $destino = "images/" . $_FILES['imagem_2']['name'];
+          $destino = "img/" . $_FILES['imagem_2']['name'];
           $arquivo_tmp = $_FILES['imagem_2']['tmp_name'];
 
           move_uploaded_file( $arquivo_tmp, $destino  );
@@ -65,9 +65,9 @@ class NoticiasController extends Controller
           $noticia->imagem_2 = $destino;
         }
 
-        if(!empty($_FILES['imagem_3'])) {
+        if(!empty($_FILES['imagem_3']) && !empty($_FILES['imagem_3']['name'])) {
 
-          $destino = "images/" . $_FILES['imagem_3']['name'];
+          $destino = "img/" . $_FILES['imagem_3']['name'];
           $arquivo_tmp = $_FILES['imagem_3']['tmp_name'];
 
           move_uploaded_file( $arquivo_tmp, $destino  );
@@ -93,6 +93,12 @@ class NoticiasController extends Controller
     {
         $noticia = Noticias::find($id);
         return view('admin.noticias.edit')->with('noticia', $noticia);
+    }
+
+    public function exibir($id)
+    {
+        $noticia = Noticias::findOrFail($id);
+        return view('paginas.noticia')->with('noticia', $noticia);
     }
 
     /**
