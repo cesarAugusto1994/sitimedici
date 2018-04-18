@@ -112,7 +112,13 @@ class BannerController extends Controller
      */
     public function destroy($id)
     {
-        Banner::destroy($id);
+        $banner = Banner::findOrFail($id);
+
+        if (file_exists($banner->link)) {
+            unlink($banner->link);
+        }
+
+        $banner->delete();
 
         return redirect()->route('banners');
     }
