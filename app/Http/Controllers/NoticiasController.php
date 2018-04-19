@@ -85,19 +85,19 @@ class NoticiasController extends Controller
 
         if ($request->hasFile('imagem_1')) {
             $path = $request->file('imagem_1')->store('img');
-            move_uploaded_file($path);
+            #move_uploaded_file($path);
             $noticia->imagem_1 = $path;
         }
 
         if ($request->hasFile('imagem_2')) {
             $path = $request->file('imagem_2')->store('img');
-            move_uploaded_file($path);
+            #move_uploaded_file($path);
             $noticia->imagem_2 = $path;
         }
 
         if ($request->hasFile('imagem_3')) {
             $path = $request->file('imagem_3')->store('img');
-            move_uploaded_file($path);
+            #move_uploaded_file($path);
             $noticia->imagem_3 = $path;
         }
 
