@@ -27,6 +27,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('/noticias', 'NoticiasController@index')->name('noticias');
     Route::get('/noticias/form/create', 'NoticiasController@create')->name('noticia_create');
     Route::post('/noticias/store', 'NoticiasController@store')->name('noticia_store');
+    Route::post('/noticias/{id}/update', 'NoticiasController@update')->name('noticia_update');
 
     Route::get('/noticia/{id}', 'NoticiasController@show')->name('noticia');
 

@@ -17,7 +17,8 @@ class CreateNoticiasTable extends Migration
             $table->increments('id');
             $table->string('titulo');
             $table->string('subtitulo');
-            $table->text('conteudo');
+            $table->longText('conteudo');
+            $table->longText('conteudo_html');
             $table->string('imagem_1')->nullable();
             $table->string('imagem_2')->nullable();
             $table->string('imagem_3')->nullable();

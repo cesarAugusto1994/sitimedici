@@ -37,14 +37,21 @@ class NoticiasController extends Controller
      */
     public function store(Request $request)
     {
+
+        try {
+
         $data = $request->request->all();
+
+        #dd($data);
 
         $noticia = new Noticias();
 
         $noticia->titulo = $data['titulo'];
         $noticia->subtitulo = $data['subtitulo'];
         $noticia->conteudo = $data['conteudo'];
+        $noticia->conteudo_html = $data['conteudo_html'];
 
+/*
         if(!empty($_FILES['imagem_1']) && !empty($_FILES['imagem_1']['name'])) {
 
           $destino = "img/" . $_FILES['imagem_1']['name'];
@@ -74,12 +81,46 @@ class NoticiasController extends Controller
 
           $noticia->imagem_3 = $destino;
         }
+*/
+
+        if ($request->hasFile('imagem_1')) {
+            $path = $request->file('imagem_1')->store('img');
+            move_uploaded_file($path);
+            $noticia->imagem_1 = $path;
+        }
+
+        if ($request->hasFile('imagem_2')) {
+            $path = $request->file('imagem_2')->store('img');
+            move_uploaded_file($path);
+            $noticia->imagem_2 = $path;
+        }
+
+        if ($request->hasFile('imagem_3')) {
+            $path = $request->file('imagem_3')->store('img');
+            move_uploaded_file($path);
+            $noticia->imagem_3 = $path;
+        }
 
         $noticia->usuario_id = Auth::user()->id;
 
         $noticia->save();
 
-        return redirect()->route('noticias');
+        return response()->json(
+            [
+                'code' => 201,
+                'message' => 'salvo com sucesso',
+            ]
+        );
+
+      } catch (Exception $e) {
+
+        return response()->json([
+                'code' => 100,
+                'message' => $e->getMessage(),
+            ]
+        );
+
+      }
 
     }
 
@@ -121,7 +162,52 @@ class NoticiasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+
+            $data = $request->request->all();
+
+            $noticia = Noticias::findOrFail($id);
+
+            $noticia->titulo = $data['titulo'];
+            $noticia->subtitulo = $data['subtitulo'];
+            $noticia->conteudo = $data['conteudo'];
+            $noticia->conteudo_html = $data['conteudo_html'];
+
+            if ($request->hasFile('imagem_1')) {
+                $path = $request->file('imagem_1')->store('img');
+                $noticia->imagem_1 = $path;
+            }
+
+            if ($request->hasFile('imagem_2')) {
+                $path = $request->file('imagem_2')->store('img');
+                $noticia->imagem_2 = $path;
+            }
+
+            if ($request->hasFile('imagem_3')) {
+                $path = $request->file('imagem_3')->store('img');
+                $noticia->imagem_3 = $path;
+            }
+
+            $noticia->usuario_id = Auth::user()->id;
+
+            $noticia->save();
+
+            return response()->json(
+                [
+                    'code' => 201,
+                    'message' => 'salvo com sucesso',
+                ]
+            );
+
+          } catch (Exception $e) {
+
+            return response()->json([
+                    'code' => $e->getCode(),
+                    'message' => $e->getMessage(),
+                ]
+            );
+
+          }
     }
 
     /**

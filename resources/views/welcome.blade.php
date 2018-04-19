@@ -42,7 +42,7 @@
 
 
                         <div class="post-desc">
-                            <p>{{ substr($noticiaPrincipal->conteudo, 0, 250) }}...</p>
+                            <p>{{ substr(strip_tags($noticiaPrincipal->conteudo_html), 0, 250) }}...</p>
                         </div>
 
                     </div>
@@ -94,10 +94,10 @@
 
                                         <div class="mask-background white"></div>
 
-                                        <div class="post-type anim"><i class="icon-music"></i></div>
+                                        <div class="post-type anim"><i class="icon-feed"></i></div>
 
                                         <div class="post-thumbnail border-radius-2px">
-                                            <img class="border-radius-2px" src="images/people2.jpg" data-src="images/people2.jpg"  @if($noticia->imagem_1) src="{{ $noticia->imagem_1 }}"  @endif />
+                                            <img class="border-radius-2px" src="{{ $noticia->imagem_1 }}" data-src="{{ $noticia->imagem_1 }}"  @if($noticia->imagem_1) src="{{ $noticia->imagem_1 }}"  @endif />
                                         </div>
 
                                         <a href="#" class="more"></a>

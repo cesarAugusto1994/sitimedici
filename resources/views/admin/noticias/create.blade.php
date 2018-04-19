@@ -2,10 +2,14 @@
 
 @extends('adminlte::page')
 
-@section('title', 'Noticias')
-
 @section('content_header')
     <h1>Noticias</h1>
+@stop
+
+@section('css')
+<link href="https://cdn.quilljs.com/1.1.6/quill.snow.css" rel="stylesheet">
+<script src="https://cdn.quilljs.com/1.1.6/quill.js"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css">
 @stop
 
 @section('content')
@@ -15,7 +19,7 @@
         </div>
         <div class="box-body">
 
-          <form method="post" enctype="multipart/form-data" class="form-horizontal" action="{{route('noticia_store')}}">
+          <form method="post" enctype="multipart/form-data" id="formNoticia" class="form-horizontal" action="{{route('noticia_store')}}">
           {{csrf_field()}}
 
           <div class="row">
@@ -35,7 +39,8 @@
                   <div class="form-group">
                     <label class="col-sm-2 control-label">Texto</label>
                       <div class="col-sm-10">
-                        <textarea id="editor" name="conteudo" style="min-height:200px" class="form-control"></textarea>
+                        <!--<textarea id="editor" name="conteudo" style="min-height:200px" class="form-control"></textarea>-->
+                        <div id="editor"></div>
                       </div>
                   </div>
                   <div class="form-group">
@@ -98,13 +103,9 @@
     </div>
 @stop
 
-@section('css')
-<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css">
-@stop
+
 
 @section('js')
-<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.4/holder.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
 <script>
@@ -117,8 +118,73 @@ var quill = new Quill('#editor', {
        [{ list: 'ordered' }, { list: 'bullet' }]
     ]
   },
-  placeholder: 'Compose an epic...',
+  placeholder: 'Comece a escrever...',
   theme: 'snow'  // or 'bubble'
 });
+
+$(document).ready(function() {
+
+  $('#formNoticia').submit(function(e) {
+
+      e.preventDefault();
+
+      var self = $(this);
+
+      var divEditor = JSON.stringify(quill.getContents());
+      var divEditorHtml = $('#editor').html();
+
+      var form = $("#formNoticia");
+
+      form.append('<textarea name="conteudo" style="display:none">'+divEditor+'</textarea>');
+      form.append('<textarea name="conteudo_html" style="display:none">'+divEditorHtml+'</textarea>');
+
+      //var serialized = form.serialize();
+
+      files = e.target.files;
+
+      var formData = new FormData(self[0]);
+      var file = [];
+
+      $.each(files, function(key, val) {
+        file[key] = val;
+      });
+
+      formData.append('file', file);
+      formData.append('_token', $('[name="_token"]').val());
+
+      $.ajax({
+          headers: {
+           'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+          },
+          type: "POST",
+          method: 'POST',
+          url: self.attr('action'),
+          data:formData,
+          dataType: 'json',
+          cache: false,
+          enctype: 'multipart/form-data',
+          contentType: false,
+          processData: false,
+          xhr: function() {  // Custom XMLHttpRequest
+              var myXhr = $.ajaxSettings.xhr();
+              if (myXhr.upload) { // Avalia se tem suporte a propriedade upload
+                  myXhr.upload.addEventListener('progress', function () {
+                      /* faz alguma coisa durante o progresso do upload */
+                  }, false);
+              }
+          return myXhr;
+        },
+          success: function (data) {
+              window.location.href = '/admin/noticias';
+          },
+           error: function (data) {
+              //openSwalMessage('Erro', data.message);
+          }
+      })
+
+  });
+
+});
+
 </script>
 @stop
