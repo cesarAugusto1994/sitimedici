@@ -51,7 +51,6 @@ class NoticiasController extends Controller
         $noticia->conteudo = $data['conteudo'];
         $noticia->conteudo_html = $data['conteudo_html'];
 
-/*
         if(!empty($_FILES['imagem_1']) && !empty($_FILES['imagem_1']['name'])) {
 
           $destino = "img/" . $_FILES['imagem_1']['name'];
@@ -81,8 +80,8 @@ class NoticiasController extends Controller
 
           $noticia->imagem_3 = $destino;
         }
-*/
 
+/*
         if ($request->hasFile('imagem_1')) {
             $path = $request->file('imagem_1')->store('img');
             #move_uploaded_file($path);
@@ -100,7 +99,7 @@ class NoticiasController extends Controller
             #move_uploaded_file($path);
             $noticia->imagem_3 = $path;
         }
-
+*/
         $noticia->usuario_id = Auth::user()->id;
 
         $noticia->save();
@@ -173,19 +172,34 @@ class NoticiasController extends Controller
             $noticia->conteudo = $data['conteudo'];
             $noticia->conteudo_html = $data['conteudo_html'];
 
-            if ($request->hasFile('imagem_1')) {
-                $path = $request->file('imagem_1')->store('img');
-                $noticia->imagem_1 = $path;
+            if(!empty($_FILES['imagem_1']) && !empty($_FILES['imagem_1']['name'])) {
+
+              $destino = "img/" . $_FILES['imagem_1']['name'];
+              $arquivo_tmp = $_FILES['imagem_1']['tmp_name'];
+
+              move_uploaded_file( $arquivo_tmp, $destino  );
+
+              $noticia->imagem_1 = $destino;
             }
 
-            if ($request->hasFile('imagem_2')) {
-                $path = $request->file('imagem_2')->store('img');
-                $noticia->imagem_2 = $path;
+            if(!empty($_FILES['imagem_2']) && !empty($_FILES['imagem_2']['name'])) {
+
+              $destino = "img/" . $_FILES['imagem_2']['name'];
+              $arquivo_tmp = $_FILES['imagem_2']['tmp_name'];
+
+              move_uploaded_file( $arquivo_tmp, $destino  );
+
+              $noticia->imagem_2 = $destino;
             }
 
-            if ($request->hasFile('imagem_3')) {
-                $path = $request->file('imagem_3')->store('img');
-                $noticia->imagem_3 = $path;
+            if(!empty($_FILES['imagem_3']) && !empty($_FILES['imagem_3']['name'])) {
+
+              $destino = "img/" . $_FILES['imagem_3']['name'];
+              $arquivo_tmp = $_FILES['imagem_3']['tmp_name'];
+
+              move_uploaded_file( $arquivo_tmp, $destino  );
+
+              $noticia->imagem_3 = $destino;
             }
 
             $noticia->usuario_id = Auth::user()->id;
