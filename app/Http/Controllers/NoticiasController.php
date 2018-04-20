@@ -42,8 +42,6 @@ class NoticiasController extends Controller
 
         $data = $request->request->all();
 
-        #dd($data);
-
         $noticia = new Noticias();
 
         $noticia->titulo = $data['titulo'];
@@ -81,25 +79,6 @@ class NoticiasController extends Controller
           $noticia->imagem_3 = $destino;
         }
 
-/*
-        if ($request->hasFile('imagem_1')) {
-            $path = $request->file('imagem_1')->store('img');
-            #move_uploaded_file($path);
-            $noticia->imagem_1 = $path;
-        }
-
-        if ($request->hasFile('imagem_2')) {
-            $path = $request->file('imagem_2')->store('img');
-            #move_uploaded_file($path);
-            $noticia->imagem_2 = $path;
-        }
-
-        if ($request->hasFile('imagem_3')) {
-            $path = $request->file('imagem_3')->store('img');
-            #move_uploaded_file($path);
-            $noticia->imagem_3 = $path;
-        }
-*/
         $noticia->usuario_id = Auth::user()->id;
 
         $noticia->save();
@@ -138,7 +117,7 @@ class NoticiasController extends Controller
     public function exibir($id)
     {
         $noticia = Noticias::findOrFail($id);
-        
+
         return view('paginas.noticia')->with('noticia', $noticia)
         ->with('noticias', Noticias::all());
     }

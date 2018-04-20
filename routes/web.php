@@ -35,17 +35,28 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('/paginas/form/create', 'PaginasController@create')->name('pagina_create');
     Route::post('/paginas/store', 'PaginasController@store')->name('pagina_store');
     Route::get('/paginas/{id}/edit', 'PaginasController@edit')->name('pagina_edit');
-
     Route::post('/paginas/{id}/update', 'PaginasController@update')->name('pagina_update');
     Route::get('/paginas/{id}', 'PaginasController@show')->name('pagina');
-
-    #Route::resource('banners', 'BannerController');
 
     Route::get('/banners', 'BannerController@index')->name('banners');
     Route::get('/banners/{id}/edit', 'BannerController@edit')->name('banner_edit');
     Route::get('/banners/form/create', 'BannerController@create')->name('banner_create');
     Route::post('/banners/store', 'BannerController@store')->name('banner_store');
     Route::get('/banners/{id}/destroy', 'BannerController@destroy')->name('banner_destroy');
+
+    Route::get('/servicos', 'ServicosController@index')->name('servicos');
+    Route::get('/servicos/form/create', 'ServicosController@create')->name('servico_create');
+    Route::post('/servicos/store', 'ServicosController@store')->name('servico_store');
+    Route::get('/servicos/{id}/edit', 'ServicosController@edit')->name('servico_edit');
+    Route::post('/servicos/{id}/update', 'ServicosController@update')->name('servico_update');
+    Route::get('/servicos/{id}', 'ServicosController@show')->name('servico');
+
+    Route::get('/eventos', 'EventosController@index')->name('eventos');
+    Route::get('/eventos/form/create', 'EventosController@create')->name('evento_create');
+    Route::post('/eventos/store', 'EventosController@store')->name('evento_store');
+    Route::get('/eventos/{id}/edit', 'EventosController@edit')->name('evento_edit');
+    Route::post('/eventos/{id}/update', 'EventosController@update')->name('evento_update');
+    Route::get('/eventos/{id}', 'EventosController@show')->name('evento');
 });
 
 Auth::routes();

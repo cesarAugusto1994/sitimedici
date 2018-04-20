@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="col-md-8">
+<div class="col-md-9">
 
     <!-- Horizontal Category (2 Columns) -->
     <section class="cat-widget wdg-cat-horiz-2col-sm clearfix">
@@ -150,18 +150,17 @@
                 </ul>
 
                 <div class="scroll-box">
-                  @foreach($listaNoticias as $noticia)
+                  @foreach(\App\Http\Controllers\HomeController::eventos() as $evento)
                     <div class="post-item">
                         <article class="post-box clearfix">
                             <a class="post-thumbnail">
-                                <img src="{{ $noticia->imagem_1 }}" data-src="{{ $noticia->imagem_1 }}" /></a>
+                                <img src="{{ $evento->imagem }}" data-src="{{ $evento->imagem }}" /></a>
 
                             <header class="title-bar">
-                                <h4 class="post-title"><a href="#">{{ $noticia->titulo }}</a></h4>
+                                <h4 class="post-title"><a href="#">{{ $evento->nome }}</a></h4>
 
                                 <div class="meta-info">
-                                    <span class="author"><i class="icon-user3"></i><a href="#">Administrador</a></span>
-                                    <span class="date-time"><i class="icon-alarm2"></i>08 Mar 2018, 05:15</span>
+                                    <span class="date"><i class="icon-calendar"></i>{{ $evento->data->format('d M Y') }}</span>
                                 </div>
 
                             </header>
@@ -180,7 +179,7 @@
 
 </div>
 
-<section class="col-md-4">
+<section class="col-md-3">
     <h2 class="hidden">Sidebar</h2>
 
     <aside class="widget" data-showonscroll="true" data-animation="fadeIn">
@@ -191,70 +190,38 @@
 
         <div class="widget-content clearfix">
             <div class="wdg-classic-posts color-theme clearfix">
-                <ul class="list-unstyled text-center">
-                    <li class="post-item">
-                        <article class="post-box clearfix">
-                            <div class="wdg-col-8 sec-title">
-                                <h5><a target="_blank" href="http://sitimeci.com.br/" title="">Contribuição</a></h5>
-                            </div>
-                        </article>
-                    </li>
+                <ul class="list-unstyled ">
 
-                    <li class="post-item">
-                        <article class="post-box clearfix">
-                            <div class="wdg-col-8 sec-title">
-                                <h5><a href="http://sitimeci.com.br/" title="">Boletos</a></h5>
-                            </div>
-                        </article>
-                    </li>
+                  @foreach(\App\Http\Controllers\HomeController::servicos() as $servico)
 
+                    @if($servico->is_link)
                     <li class="post-item">
                         <article class="post-box clearfix">
                             <div class="wdg-col-8 sec-title">
-                                <h5><a href="#" title="">Sindicalize-se</a></h5>
+                                <h5><a target="_blank" href="{{ $servico->url }}" title="">{{ $servico->nome }}</a></h5>
                             </div>
                         </article>
                     </li>
+                    @elseif($servico->is_file)
+                    <li class="post-item">
+                        <article class="post-box clearfix">
+                            <div class="wdg-col-8 sec-title">
+                                <h5><a target="_blank" href="{{ $servico->url }}" title="">{{ $servico->nome }}</a></h5>
+                            </div>
+                        </article>
+                    </li>
+                    @else
+                    <li class="post-item">
+                        <article class="post-box clearfix">
+                            <div class="wdg-col-8 sec-title">
+                                <h5><a target="_blank" href="{{ $servico->url ? $servico->url : '#' }}" title="">{{ $servico->nome }}</a></h5>
+                            </div>
+                        </article>
+                    </li>
+                    @endif
 
-                    <li class="post-item">
-                        <article class="post-box clearfix">
-                            <div class="wdg-col-8 sec-title">
-                                <h5><a href="#" title="">Agenda de Homologação</a></h5>
-                            </div>
-                        </article>
-                    </li>
+                  @endforeach
 
-                    <li class="post-item">
-                        <article class="post-box clearfix">
-                            <div class="wdg-col-8 sec-title">
-                                <h5><a href="#" title="">Consultar Processo</a></h5>
-                            </div>
-                        </article>
-                    </li>
-
-                    <li class="post-item">
-                        <article class="post-box clearfix">
-                            <div class="wdg-col-8 sec-title">
-                                <h5><a href="#" title="">Convenios</a></h5>
-                            </div>
-                        </article>
-                    </li>
-
-                    <li class="post-item">
-                        <article class="post-box clearfix">
-                            <div class="wdg-col-8 sec-title">
-                                <h5><a href="#" title="">Deixe seu Curriculo</a></h5>
-                            </div>
-                        </article>
-                    </li>
-
-                    <li class="post-item">
-                        <article class="post-box clearfix">
-                            <div class="wdg-col-8 sec-title">
-                                <h5><a href="#" title="">Fale Conosco</a></h5>
-                            </div>
-                        </article>
-                    </li>
 
                 </ul>
             </div>

@@ -108,16 +108,11 @@ return [
     */
 
     'menu' => [
-        'MAIN NAVIGATION',
+        'Navegação',
         [
             'text' => 'Blog',
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
-        ],
-        [
-            'text'        => 'Paginas',
-            'url'         => 'admin/paginas',
-            'icon'        => 'file',
         ],
         [
             'text'        => 'Noticias',
@@ -134,47 +129,29 @@ return [
             'url'         => 'admin/paginas',
             'icon'        => 'file-o',
         ],
-
-
-        'ACCOUNT SETTINGS',
         [
-            'text' => 'Profile',
-            'url'  => 'admin/settings',
+            'text'        => 'Serviços',
+            'url'         => 'admin/servicos',
+            'icon'        => 'cogs',
+        ],
+        [
+            'text'        => 'Eventos',
+            'url'         => 'admin/eventos',
+            'icon'        => 'calendar',
+        ],
+
+        'Conta',
+        [
+            'text' => 'Perfil',
+            'url'  => '#',
             'icon' => 'user',
         ],
         [
-            'text' => 'Change Password',
-            'url'  => 'admin/settings',
+            'text' => 'Trocar Senha',
+            'url'  => '#',
             'icon' => 'lock',
         ],
-        [
-            'text'    => 'Paginas',
-            'icon'    => 'file-o',
-            'submenu' => [
-                [
-                    'text'    => 'Sitimedici',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'Nossa Historia',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'Diretoria',
-                            'url'     => '#',
-                        ],
-                        [
-                            'text' => 'Fale Conosco',
-                            'url'  => '#',
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'Level One',
-                    'url'  => '#',
-                ],
-            ],
-        ],
+
     ],
 
     /*

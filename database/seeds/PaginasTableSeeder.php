@@ -121,7 +121,7 @@ class PaginasTableSeeder extends Seeder
             $pagina->titulo = $item['nome'];
             $pagina->conteudo = "";
             #$pagina->url = $item['url'];
-            $pagina->categoria_id = $item['categoria_id'];
+            $pagina->categoria_id = $item['categoria_id']-1;
             $pagina->Save();
         }
     }

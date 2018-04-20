@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\{Categorias, Noticias, Banner};
+use App\Models\{Categorias, Noticias, Banner, Evento, Servicos};
 use App\User;
 
 class HomeController extends Controller
@@ -65,6 +65,13 @@ class HomeController extends Controller
           return $noticias;
     }
 
+    public static function eventos()
+    {
+          $eventos = Evento::orderByDesc('created_at')->get()->take(4);
+
+          return $eventos;
+    }
+
     public static function listaNoticias()
     {
           $listaNoticias = Noticias::orderByDesc('created_at')->get();
@@ -85,6 +92,13 @@ class HomeController extends Controller
         $listaNoticias = Noticias::orderByDesc('created_at')->get()->first();
 
         return $listaNoticias;
+    }
+
+    public static function servicos()
+    {
+          $servicos = Servicos::all();
+
+          return $servicos;
     }
 
     public static function categorias()

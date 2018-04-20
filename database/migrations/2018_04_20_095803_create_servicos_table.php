@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateConfiguracoesTable extends Migration
+class CreateServicosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class CreateConfiguracoesTable extends Migration
      */
     public function up()
     {
-        Schema::create('configuracoes', function (Blueprint $table) {
+        Schema::create('servicos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('logo');
-            $table->integer('logo_altura');
-            $table->integer('logo_largura');
             $table->string('nome');
+            $table->string('url');
+            $table->boolean('is_file')->default(false);
+            $table->boolean('is_link')->default(false);
+            $table->boolean('ativo')->default(true);
+            $table->boolean('download')->default(false);
             $table->timestamps();
         });
     }
@@ -30,6 +32,6 @@ class CreateConfiguracoesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('configuracoes');
+        Schema::dropIfExists('servicos');
     }
 }
