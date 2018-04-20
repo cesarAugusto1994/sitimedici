@@ -16,15 +16,15 @@
 
         <div class="widget-content color-theme clearfix">
             <div>
-                @if(App\Http\Controllers\HomeController::getNoticias()->first())
+                @if(\App\Http\Controllers\HomeController::getNoticiaPrincipal())
                 <article class="first-post clearfix" data-showonscroll="true" data-animation="fadeIn">
                     <figure class="sec-image">
 
                         <a class="post-thumbnail">
-                            <img src="{{ App\Http\Controllers\HomeController::getNoticias()->first()->imagem_1 }}" data-src="{{ App\Http\Controllers\HomeController::getNoticias()->first()->imagem_1 }}" src="{{ App\Http\Controllers\HomeController::getNoticias()->first()->imagem_1 }}" /></a>
+                            <img src="{{ \App\Http\Controllers\HomeController::getNoticiaPrincipal()->imagem_1 }}" data-src="{{ \App\Http\Controllers\HomeController::getNoticiaPrincipal()->imagem_1 }}"/></a>
 
                         <div class="bottom-bar">
-                            <span class="btn-srp"><a href="#">Leia mais...</a></span>
+                            <span class="btn-srp"><a href="{{ route('noticia_exibir', ['id' => \App\Http\Controllers\HomeController::getNoticiaPrincipal()->id, 'titulo' => str_slug(\App\Http\Controllers\HomeController::getNoticiaPrincipal()->titulo)]) }}">Leia mais...</a></span>
                         </div>
 
                     </figure>
@@ -32,17 +32,17 @@
                     <div class="sec-desc">
 
                         <header class="title">
-                            <h4 class="post-title"><a href="#">{{ App\Http\Controllers\HomeController::getNoticias()->first()->titulo }}</a></h4>
+                            <h4 class="post-title"><a href="{{ route('noticia_exibir', ['id' => \App\Http\Controllers\HomeController::getNoticiaPrincipal()->id, 'titulo' => str_slug(\App\Http\Controllers\HomeController::getNoticiaPrincipal()->titulo)]) }}">{{ \App\Http\Controllers\HomeController::getNoticiaPrincipal()->titulo }}</a></h4>
                         </header>
 
                         <div class="meta-info">
-                            <span class="author"><i class="icon-user3"></i><a href="#">{{ $noticiaPrincipal->user->name }}</a></span>
-                            <span class="date-time"><i class="icon-alarm2"></i>{{ $noticiaPrincipal->created_at->format('d M Y, H:i') }}</span>
+                            <span class="author"><i class="icon-user3"></i><a href="#">{{ \App\Http\Controllers\HomeController::getNoticiaPrincipal()->user->name }}</a></span>
+                            <span class="date-time"><i class="icon-alarm2"></i>{{ \App\Http\Controllers\HomeController::getNoticiaPrincipal()->created_at->format('d M Y, H:i') }}</span>
                         </div>
 
 
                         <div class="post-desc">
-                            <p>{{ substr(strip_tags($noticiaPrincipal->conteudo_html), 0, 250) }}...</p>
+                            <p>{{ substr(strip_tags(\App\Http\Controllers\HomeController::getNoticiaPrincipal()->conteudo_html), 0, 250) }}...</p>
                         </div>
 
                     </div>
@@ -52,7 +52,7 @@
                 <div class="related-posts">
                     <div class="posts clearfix">
 
-                        @foreach(App\Http\Controllers\HomeController::getNoticias()->take(-6) as $noticia)
+                        @foreach(\App\Http\Controllers\HomeController::listaNoticias() as $noticia)
 
                             @if($loop->index % 2 == 0)
 
@@ -68,12 +68,12 @@
                                             <img class="border-radius-2px" src="{{ $noticia->imagem_1 }}" data-src="{{ $noticia->imagem_1 }}" />
                                         </div>
 
-                                        <a href="#" class="more"></a>
+                                        <a href="{{ route('noticia_exibir', ['id' => $noticia->id, 'titulo' => str_slug($noticia->titulo)]) }}" class="mais..."></a>
                                     </figure>
 
                                     <header class="wdg-col-8 sec-title">
 
-                                        <h5><a href="#" title="">{{ substr($noticia->titulo, 0, 50) }}</a></h5>
+                                        <h5><a href="{{ route('noticia_exibir', ['id' => $noticia->id, 'titulo' => str_slug($noticia->titulo)]) }}" title="">{{ substr($noticia->titulo, 0, 50) }}</a></h5>
 
                                         <div class="meta-info">
 
@@ -100,12 +100,12 @@
                                             <img class="border-radius-2px" src="{{ $noticia->imagem_1 }}" data-src="{{ $noticia->imagem_1 }}"  @if($noticia->imagem_1) src="{{ $noticia->imagem_1 }}"  @endif />
                                         </div>
 
-                                        <a href="#" class="more"></a>
+                                        <a href="{{ route('noticia_exibir', ['id' => $noticia->id, 'titulo' => $noticia->titulo]) }}" class="mais..."></a>
                                     </figure>
 
                                     <header class="wdg-col-8 sec-title">
 
-                                        <h5><a href="#" title="">{{ substr($noticia->titulo, 0, 50) }}</a></h5>
+                                        <h5><a href="{{ route('noticia_exibir', ['id' => $noticia->id, 'titulo' => $noticia->titulo]) }}" title="">{{ substr($noticia->titulo, 0, 50) }}</a></h5>
 
                                         <div class="meta-info">
 

@@ -1,5 +1,9 @@
 @extends('layouts.layout')
 
 @section('content')
-  Ola
+
+  <h3>{{ $noticia->titulo }}</h3>
+
+  {!! $noticia->conteudo_html !!}
+
 @endsection

@@ -3,8 +3,7 @@
 @extends('adminlte::page')
 
 @section('css')
-<link href="https://cdn.quilljs.com/1.1.6/quill.snow.css" rel="stylesheet">
-<script src="https://cdn.quilljs.com/1.1.6/quill.js"></script>
+<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css">
 @stop
 
@@ -40,7 +39,7 @@
                     <label class="col-sm-2 control-label">Texto</label>
                       <div class="col-sm-10">
                         <div id="editor"></div>
-                        <textarea id="conteudo" style="display:none">{!! $noticia->conteudo !!}</textarea>
+                        <textarea id="summernote" rows="7" name="conteudo">{!! $noticia->conteudo !!}</textarea>
                       </div>
                   </div>
                   <div class="form-group">
@@ -105,29 +104,14 @@
 
 
 @section('js')
+<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.4/holder.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
 <script>
-var quill = new Quill('#editor', {
-  modules: {
-    toolbar: [
-      [{ header: [1, 2, false] }],
-      ['bold', 'italic', 'underline'],
-      ['link', 'blockquote', 'code-block', 'image'],
-       [{ list: 'ordered' }, { list: 'bullet' }]
-    ]
-  },
-  placeholder: 'Compose an epic...',
-  theme: 'snow'  // or 'bubble'
-});
 
 $(document).ready(function() {
 
-  var conteudo = $("#conteudo").html();
-
-  //if(conteudo.lenght > 0) {
-      quill.setContents(JSON.parse(conteudo));
-  //}
+  $('#summernote').summernote();
 
   $('#formNoticia').submit(function(e) {
 
@@ -135,12 +119,11 @@ $(document).ready(function() {
 
       var self = $(this);
 
-      var divEditor = JSON.stringify(quill.getContents());
-      var divEditorHtml = $('#editor').html();
+      var divEditorHtml = $('#summernote').val();
 
       var form = $("#formNoticia");
 
-      form.append('<textarea name="conteudo" style="display:none">'+divEditor+'</textarea>');
+      form.append('<textarea name="conteudo" style="display:none">'+divEditorHtml+'</textarea>');
       form.append('<textarea name="conteudo_html" style="display:none">'+divEditorHtml+'</textarea>');
 
       //var serialized = form.serialize();

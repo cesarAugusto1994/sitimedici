@@ -14,10 +14,6 @@ class CategoriasTableSeeder extends Seeder
     {
         $categorias = [
             [
-                'nome' => 'Inicio',
-                'url' => '/',
-            ],
-            [
                 'nome' => 'SitiMeci',
                 'url' => '#',
             ],
@@ -46,7 +42,7 @@ class CategoriasTableSeeder extends Seeder
         foreach ($categorias as $item) {
             $categoria = new Categorias();
             $categoria->nome = $item['nome'];
-            $categoria->url = $item['url'];
+            #$categoria->url = $item['url'];
             $categoria->Save();
         }
 

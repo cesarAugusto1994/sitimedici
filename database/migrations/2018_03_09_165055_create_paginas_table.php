@@ -16,15 +16,14 @@ class CreatePaginasTable extends Migration
         Schema::create('categorias', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nome');
-            $table->string('url')->default('#');
             $table->boolean('ativo')->default(true);
             $table->timestamps();
         });
 
         Schema::create('paginas', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nome');
-            $table->string('url')->default('#');
+            $table->string('titulo');
+            $table->longText('conteudo');
             $table->boolean('ativo')->default(true);
             $table->integer('categoria_id')->unsigned();
             $table->foreign('categoria_id')->references('id')->on('categorias');

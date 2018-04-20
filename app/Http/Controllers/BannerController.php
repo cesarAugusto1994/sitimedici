@@ -47,7 +47,7 @@ class BannerController extends Controller
 
         $banner->titulo = $data['titulo'];
 
-        if(!empty($_FILES['imagem'])) {
+        if(!empty($_FILES['imagem']) && !empty($_FILES['imagem']['name'])) {
 
           $destino = "img/" . $_FILES['imagem']['name'];
           $arquivo_tmp = $_FILES['imagem']['tmp_name'];
@@ -114,7 +114,7 @@ class BannerController extends Controller
     {
         $banner = Banner::findOrFail($id);
 
-        if (file_exists($banner->link)) {
+        if (file_exists($banner->link) === true) {
             unlink($banner->link);
         }
 

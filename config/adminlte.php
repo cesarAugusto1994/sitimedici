@@ -129,6 +129,13 @@ return [
             'url'         => 'admin/banners',
             'icon'        => 'file-o',
         ],
+        [
+            'text'        => 'Páginas',
+            'url'         => 'admin/paginas',
+            'icon'        => 'file-o',
+        ],
+
+
         'ACCOUNT SETTINGS',
         [
             'text' => 'Profile',

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Paginas;
 use App\Models\Categorias;
+USE Auth;
 
 class PaginasController extends Controller
 {
@@ -15,8 +16,9 @@ class PaginasController extends Controller
      */
     public function index()
     {
-        $categorias = Categorias::all();
-        return view('admin.paginas')->with('categorias', $categorias);
+        $paginas = Paginas::paginate();
+
+        return view('admin.paginas.index', compact('paginas'));
     }
 
     /**
@@ -26,7 +28,9 @@ class PaginasController extends Controller
      */
     public function create()
     {
-        //
+        $categorias = Categorias::all();
+
+        return view('admin.paginas.create', compact('categorias'));
     }
 
     /**
@@ -48,7 +52,17 @@ class PaginasController extends Controller
      */
     public function show($id)
     {
-        //
+        $pagina = Paginas::findOrFail($id);
+
+        return view('admin.paginas.details', compact('pagina'));
+    }
+
+    public function exibir($id)
+    {
+        $pagina = Paginas::findOrFail($id);
+        $categorias = Categorias::all();
+
+        return view('paginas.pagina', compact('pagina', 'categorias'));
     }
 
     /**
@@ -59,7 +73,10 @@ class PaginasController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pagina = Paginas::findOrFail($id);
+        $categorias = Categorias::all();
+
+        return view('admin.paginas.edit', compact('pagina', 'categorias'));
     }
 
     /**
@@ -71,7 +88,34 @@ class PaginasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      try {
+
+          $data = $request->request->all();
+
+          $pagina = Paginas::findOrFail($id);
+
+          $pagina->titulo = $data['titulo'];
+          $pagina->categoria_id = $data['categoria_id'];
+          $pagina->conteudo = $data['conteudo'];
+
+          $pagina->save();
+
+          return response()->json(
+              [
+                  'code' => 201,
+                  'message' => 'salvo com sucesso',
+              ]
+          );
+
+        } catch (Exception $e) {
+
+          return response()->json([
+                  'code' => $e->getCode(),
+                  'message' => $e->getMessage(),
+              ]
+          );
+
+        }
     }
 
     /**

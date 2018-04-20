@@ -33,10 +33,22 @@ class HomeController extends Controller
     {
         $banners = Banner::where('ativo', true)->get();
 
-        return view('welcome', compact('banners'))
-        ->with('noticias', $this->getNoticias()->take(4))
-        ->with('noticiaPrincipal', $this->getNoticias()->first())
-        ->with('listaNoticias', $this->getNoticias()->take(-6));
+        $noticias = $this->getNoticias()->take(4);
+        $noticiaPrincipal = $this->getNoticias()->first();
+        $listaNoticias = $this->getNoticias()->take(-6);
+
+        if($noticiaPrincipal) {
+          $listaNoticias = $listaNoticias->whereNotIn('id', [$noticiaPrincipal->id]);
+        }
+
+        $listaNoticias = $listaNoticias->take(-6);
+
+        $categorias = Categorias::all();
+
+        return view('welcome', compact('banners', 'categorias'))
+        ->with('noticias', $noticias)
+        ->with('noticiaPrincipal', $noticiaPrincipal)
+        ->with('listaNoticias', $listaNoticias);
     }
 
     public static function getNoticias()
@@ -44,6 +56,40 @@ class HomeController extends Controller
           $listaNoticias = Noticias::orderByDesc('created_at')->get();
 
           return $listaNoticias;
+    }
+
+    public static function ultimasNoticias()
+    {
+          $noticias = self::getNoticias()->take(4);
+
+          return $noticias;
+    }
+
+    public static function listaNoticias()
+    {
+          $listaNoticias = Noticias::orderByDesc('created_at')->get();
+
+          $noticiaPrincipal = self::getNoticiaPrincipal();
+
+          if($noticiaPrincipal) {
+            $listaNoticias = $listaNoticias->whereNotIn('id', [$noticiaPrincipal->id]);
+          }
+
+          $listaNoticias = $listaNoticias->take(-6);
+
+          return $listaNoticias;
+    }
+
+    public static function getNoticiaPrincipal()
+    {
+        $listaNoticias = Noticias::orderByDesc('created_at')->get()->first();
+
+        return $listaNoticias;
+    }
+
+    public static function categorias()
+    {
+        return Categorias::all();
     }
 
     public function nossaHistoria()

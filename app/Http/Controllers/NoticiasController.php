@@ -138,7 +138,9 @@ class NoticiasController extends Controller
     public function exibir($id)
     {
         $noticia = Noticias::findOrFail($id);
-        return view('paginas.noticia')->with('noticia', $noticia);
+        
+        return view('paginas.noticia')->with('noticia', $noticia)
+        ->with('noticias', Noticias::all());
     }
 
     /**

@@ -118,8 +118,9 @@ class PaginasTableSeeder extends Seeder
 
         foreach ($paginas as $item) {
             $pagina = new Paginas();
-            $pagina->nome = $item['nome'];
-            $pagina->url = $item['url'];
+            $pagina->titulo = $item['nome'];
+            $pagina->conteudo = "";
+            #$pagina->url = $item['url'];
             $pagina->categoria_id = $item['categoria_id'];
             $pagina->Save();
         }

@@ -54,7 +54,7 @@
                 <div id="social-menu-navbar-collapse" class="collapse navbar-collapse">
 
                     <ul class="nav navbar-nav navbar-left visible-lg visible-md">
-                        <li class="color-theme active"><a href="#">Inicio <span class="nav-line"></span></a></li>
+                        <li class="color-theme active"><a href="{{ route('home') }}">Inicio <span class="nav-line"></span></a></li>
                         <li class="color-2"><a href="{{ route('home_admin') }}">Administrativo <span class="nav-line"></span></a></li>
                     </ul>
 
@@ -120,7 +120,7 @@
 
                 <div id="divBreakingNewsTicker" class="content">
                     <ul id="js-news" class="js-hidden">
-                        @foreach($noticias as $noticia)
+                        @foreach(\App\Http\Controllers\HomeController::ultimasNoticias() as $noticia)
                             <li><a href="#">{{ $noticia->titulo }}</a></li>
                         @endforeach
                     </ul>
@@ -132,9 +132,9 @@
         <header class="container header-logo">
             <div class="logo" itemscope itemtype="http://schema.org/Brand">
                 <h1 class="hidden" itemprop="name">Sitimeci</h1>
-                <a href="#">
-                    <img itemprop="logo" class="site-logo" src="images/logo_web.jpg" data-src="images/logo_web.jpg" alt="main-logo"  />
-                    <img itemprop="logo" class="site-logo-retina" src="images/logo_web.jpg" data-src="images/logo_web.jpg" alt="main-logo"  />
+                <a href="{{ route('home') }}">
+                    <img itemprop="logo" class="site-logo" src="/logo/logo2.jpg" data-src="/logo/logo2.jpg" alt="main-logo"  />
+                    <img itemprop="logo" class="site-logo-retina" src="/logo/logo2.jpg" data-src="/logo/logo2.jpg" alt="main-logo"  />
                 </a>
             </div>
 
