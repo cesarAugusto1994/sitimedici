@@ -190,7 +190,7 @@
 
                   @foreach(\App\Http\Controllers\HomeController::galeria() as $foto)
                     <li class="tooltip_item post-thumbnail" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{ $foto->titulo }}">
-                        <a data-lightbox="example-set" href="/{{ $foto->link }}" data-title="My caption">
+                        <a data-lightbox="example-set" href="/{{ $foto->link }}" data-title="{{ $foto->titulo }}">
                             <img src="/{{ $foto->link }}" alt="{{ $loop->index }}">
                         </a>
                     </li>
@@ -237,7 +237,7 @@
                     <li class="post-item">
                         <article class="post-box clearfix">
                             <div class="wdg-col-8 sec-title">
-                                <h5><a target="_blank" href="{{ $servico->url ? $servico->url : '#' }}" title="">{{ $servico->nome }}</a></h5>
+                                <h5><a href="{{ $servico->url ? $servico->url : '#' }}" title="">{{ $servico->nome }}</a></h5>
                             </div>
                         </article>
                     </li>

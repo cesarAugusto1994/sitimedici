@@ -339,11 +339,11 @@
         <h3 class="hidden">Footer Bottom Links</h3>
 
         <div class="col-md-6">
-          
+
         </div>
 
         <div class="col-md-6">
-            <p class="pull-right">&copy; 2018 SitiMedici, Todos os direitos reservados. Desenvolvido por <a href="#">César Augusto</a>.</p>
+            <p class="pull-right">&copy; 2018 Sitimeci, Todos os direitos reservados. Desenvolvido por <a href="#">César Augusto</a>.</p>
         </div>
 
     </section>
