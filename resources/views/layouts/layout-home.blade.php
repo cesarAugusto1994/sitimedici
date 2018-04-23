@@ -56,7 +56,7 @@
 
                     <ul class="nav navbar-nav navbar-left visible-lg visible-md">
                         <li class="color-theme active"><a href="#">Inicio <span class="nav-line"></span></a></li>
-                        <li class="color-2"><a href="{{ route('home_admin') }}">Administrativo <span class="nav-line"></span></a></li>
+                        <li class="color-2"><a target="_blank" href="{{ route('home_admin') }}">Administrativo <span class="nav-line"></span></a></li>
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right visible-lg visible-md visible-sm">
@@ -67,9 +67,9 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-search"></i></a>
                             <ul class="dropdown-menu" data-dropdownanimation="true" data-animation="fadeInLeft">
                                 <li>
-                                    <form class="navbar-form navbar-right" role="search">
+                                    <form action="{{ route('pesquisar') }}" class="navbar-form navbar-right" role="search">
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Search" required="required" />
+                                            <input type="text" name="q" class="form-control" placeholder="Pesquisar" required="required" />
                                             <button type="submit" class="btn-search"><i class="icon-search"></i></button>
                                         </div>
                                     </form>

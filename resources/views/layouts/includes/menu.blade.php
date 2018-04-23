@@ -58,37 +58,4 @@
 
     </ul>
 
-    <ul class="menu-block">
-
-        <li class="active color-theme"><a href="#">Home <span class="nav-line"></span></a>
-            <ul class="dropdown-menu animated fadeInLeft">
-                <li><a href="#">Right Sidebar (Default)</a></li>
-                <li><a href="#">Left Sidebar</a></li>
-                <li><a href="#">Full Width</a></li>
-            </ul>
-        </li>
-
-        <li class="color-theme"><a href="#">Menu Item <span class="nav-line"></span></a></li>
-
-        <li class="dropdown color-theme">
-            <a href="#" class="dropdown-toggle">Dropdown Menu<span class="nav-line"></span></a>
-
-            <ul class="dropdown-menu animated fadeInLeft">
-                <li class="dropdown-submenu">
-                    <a href="#">Sub Menu</a>
-
-                    <ul class="dropdown-menu animated fadeInLeft">
-                        <li><a href="#">Style 1</a></li>
-                        <li><a href="#">Style 2</a></li>
-                        <li><a href="#">Style 3</a></li>
-                    </ul>
-                </li>
-
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li><a href="#">One more link</a></li>
-            </ul>
-        </li>
-    </ul>
-
 </nav>

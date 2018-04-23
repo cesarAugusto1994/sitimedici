@@ -19,6 +19,7 @@ Route::get('/fale-conosco', 'HomeController@faleConosco')->name('fale_conosco');
 Route::get('/noticia/{id}/{titulo}', 'NoticiasController@exibir')->name('noticia_exibir');
 Route::get('/pagina/{id}/{titulo}', 'PaginasController@exibir')->name('pagina_exibir');
 Route::get('/evento/{id}/{titulo}', 'EventosController@exibir')->name('evento_exibir');
+Route::get('/pesquisa', 'HomeController@pesquisar')->name('pesquisar');
 
 Auth::routes();
 

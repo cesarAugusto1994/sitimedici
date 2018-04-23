@@ -61,6 +61,20 @@ class HomeController extends Controller
         ->with('listaNoticias', $listaNoticias);
     }
 
+    public function pesquisar(Request $request)
+    {
+       $data = $request->request->all();
+
+       $q = $data['q'];
+
+       $parametro = $q;
+
+       $noticias = Noticias::where('titulo', 'like', "%$q%")->take(5)->get();
+       $eventos = Evento::where('nome', 'like', "%$q%")->take(5)->get();
+
+       return view('paginas.pesquisar', compact('noticias', 'parametro', 'eventos'));
+    }
+
     public static function getNoticias()
     {
           $listaNoticias = Noticias::orderByDesc('created_at')->get();
