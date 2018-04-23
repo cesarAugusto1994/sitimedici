@@ -78,6 +78,13 @@ class EventosController extends Controller
         return view('admin.eventos.edit', compact('evento'));
     }
 
+    public function exibir($id)
+    {
+        $evento = Evento::findOrFail($id);
+
+        return view('paginas.evento', compact('evento'));
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -109,6 +116,22 @@ class EventosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+
+            $evento = Evento::findOrFail($id);
+
+            if (file_exists($evento->imagem) === true) {
+                unlink($evento->imagem);
+            }
+
+            $evento->delete();
+
+            flash('Evento removido com sucesso')->success()->important();
+
+        } catch(Exception $e) {
+          flash($e->getMessage())->error()->important();
+        }
+
+        return redirect()->route('eventos');
     }
 }

@@ -23,6 +23,7 @@
                     <tr>
                         <th>Nome</th>
                         <th>Data</th>
+                        <th>opções</th>
                     </tr>
                 </thead>
 
@@ -30,8 +31,8 @@
                     @foreach($eventos as $evento)
                         <tr>
                             <td><a href="{{ route('evento', ['id' => $evento->id]) }}">{{ $evento->nome }}</a></td>
-
                             <td>{{ $evento->created_at->format('d/m/Y') }}</td>
+                            <td><a class="btn btn-xs btn-link" href="{{ route('evento_destroy', ['id' => $evento->id]) }}">Remover</a></td>
                         </tr>
                     @endforeach
                 </tbody>

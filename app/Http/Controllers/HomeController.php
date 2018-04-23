@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\{Categorias, Noticias, Banner, Evento, Servicos};
+use App\Models\{Categorias, Noticias, Banner, Evento, Servicos, Videos, GaleriaFotos};
 use App\User;
 
 class HomeController extends Controller
@@ -58,6 +58,13 @@ class HomeController extends Controller
           return $listaNoticias;
     }
 
+    public static function outrasNoticias()
+    {
+          $listaNoticias = Noticias::take(4)->orderByDesc('created_at')->get();
+
+          return $listaNoticias;
+    }
+
     public static function ultimasNoticias()
     {
           $noticias = self::getNoticias()->take(4);
@@ -70,6 +77,13 @@ class HomeController extends Controller
           $eventos = Evento::orderByDesc('created_at')->get()->take(4);
 
           return $eventos;
+    }
+
+    public static function video()
+    {
+          $video = Videos::orderByDesc('created_at')->get()->first();
+
+          return $video;
     }
 
     public static function listaNoticias()
@@ -96,9 +110,16 @@ class HomeController extends Controller
 
     public static function servicos()
     {
-          $servicos = Servicos::all();
+        $servicos = Servicos::all();
 
-          return $servicos;
+        return $servicos;
+    }
+
+    public static function galeria()
+    {
+        $galeria = GaleriaFotos::all();
+
+        return $galeria;
     }
 
     public static function categorias()

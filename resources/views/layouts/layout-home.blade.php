@@ -8,6 +8,8 @@
 
     <link href="{{asset('css/framework/addons/camera/css/camera.css')}}" rel="stylesheet" />
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/css/lightbox.min.css">
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -181,6 +183,8 @@
     <script src="{{asset('css/framework/js/jquery.easing.1.3.js')}} "></script>
 
     <script src="{{asset('css/framework/bootstrap/js/bootstrap.min.js')}}"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/js/lightbox.min.js"></script>
 
     <!-- Slider -->
     <script src="{{asset('css/framework/addons/camera/js/camera.min.js')}}"></script>

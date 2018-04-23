@@ -157,7 +157,7 @@
                                 <img src="{{ $evento->imagem }}" data-src="{{ $evento->imagem }}" /></a>
 
                             <header class="title-bar">
-                                <h4 class="post-title"><a href="#">{{ $evento->nome }}</a></h4>
+                                <h4 class="post-title"><a href="{{ route('evento_exibir', ['id' => $evento->id, 'nome' => $evento->nome]) }}">{{ $evento->nome }}</a></h4>
 
                                 <div class="meta-info">
                                     <span class="date"><i class="icon-calendar"></i>{{ $evento->data->format('d M Y') }}</span>
@@ -166,7 +166,7 @@
                             </header>
 
                             <div class="bottom-bar">
-                                <span class="btn-srp"><a href="#">Leia mais...</a></span>
+                                <span class="btn-srp"><a href="{{ route('evento_exibir', ['id' => $evento->id, 'nome' => $evento->nome]) }}">Leia mais...</a></span>
 
                             </div>
                         </article>
@@ -176,6 +176,29 @@
             </div>
         </div>
     </section>
+
+
+    <aside class="widget animated fast fadeIn" data-showonscroll="true" data-animation="fadeIn">
+        <div class="widget-title clearfix">
+            <h3>Galeria de Fotos</h3>
+            <div class="sep-widget"></div>
+        </div>
+
+        <div class="widget-content clearfix">
+            <div class="wdg-news-in-pictures clearfix">
+                <ul class="clearfix">
+
+                  @foreach(\App\Http\Controllers\HomeController::galeria() as $foto)
+                    <li class="tooltip_item post-thumbnail" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{ $foto->titulo }}">
+                        <a data-lightbox="example-set" href="/{{ $foto->link }}" data-title="My caption">
+                            <img src="/{{ $foto->link }}" alt="{{ $loop->index }}">
+                        </a>
+                    </li>
+                  @endforeach
+                </ul>
+            </div>
+        </div>
+    </aside>
 
 </div>
 
@@ -243,73 +266,22 @@
 
                 <div class="scroll-box color-theme">
 
+                  @foreach(\App\Http\Controllers\HomeController::outrasNoticias() as $noticia)
                     <div class="post-item">
                         <article class="post-box clearfix">
                             <a class="post-thumbnail">
-                                <img src="images/inline.jpg" data-src="images/inline.jpg" /></a>
+                                <img src="{{ $noticia->imagem_1 }}" data-src="{{ $noticia->imagem_1 }}" /></a>
 
                             <div class="title-bar">
-                                <h4 class="post-title"><a href="#">Imagens</a></h4>
+                                <h4 class="post-title"><a href="{{ route('noticia_exibir', ['id' => $noticia->id, 'titulo' => $noticia->titulo]) }}">{{ $noticia->titulo }}</a></h4>
                             </div>
 
                             <div class="bottom-bar">
-                                <span class="btn-srp"><a href="#">visualizar...</a></span>
+                                <span class="btn-srp"><a href="{{ route('noticia_exibir', ['id' => $noticia->id, 'titulo' => $noticia->titulo]) }}">visualizar...</a></span>
                             </div>
                         </article>
                     </div>
-
-                    <div class="post-item">
-                        <article class="post-box clearfix">
-                            <a class="post-thumbnail">
-                                <img src="" data-src="holder.js/308x210" /></a>
-
-                            <div class="title-bar">
-                                <h4 class="post-title"><a href="#">Outro Post</a></h4>
-                            </div>
-
-                            <div class="bottom-bar">
-                                <span class="btn-srp"><a href="#">Leia mais...</a></span>
-
-                            </div>
-                        </article>
-                    </div>
-
-                    <div class="post-item">
-                        <article class="post-box clearfix">
-                            <a class="post-thumbnail">
-                                <img src="" data-src="holder.js/308x210" /></a>
-
-                            <div class="title-bar">
-                                <h4 class="post-title"><a href="#">Mais um post</a></h4>
-                            </div>
-
-                            <div class="bottom-bar">
-                                <span class="btn-srp"><a href="#">Leia mais...</a></span>
-
-
-
-                            </div>
-                        </article>
-                    </div>
-
-                    <div class="post-item">
-                        <article class="post-box clearfix">
-                            <a class="post-thumbnail">
-                                <img src="" data-src="holder.js/308x210" /></a>
-
-                            <div class="title-bar">
-                                <h4 class="post-title"><a href="#">Outro Post</a></h4>
-                            </div>
-
-                            <div class="bottom-bar">
-                                <span class="btn-srp"><a href="#">Leia mais...</a></span>
-
-
-
-                            </div>
-                        </article>
-                    </div>
-
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -321,12 +293,13 @@
             <div class="sep-widget"></div>
         </div>
 
+        @if(\App\Http\Controllers\HomeController::video())
         <div class="widget-content clearfix">
             <div class="wdg-video clearfix">
-                <!--<iframe itemprop="contentURL" class="youtube-player" type="text/html" width="100%" height="200" src="http://www.youtube.com/embed/P5_Msrdg3Hk?wmode=transparent&amp;wmode=opaque" allowfullscreen="" frameborder="0"></iframe>-->
-                <img src="" data-src="holder.js/308x210" />
+                <iframe itemprop="contentURL" class="youtube-player" type="text/html" width="100%" height="200" src="{{ \App\Http\Controllers\HomeController::video()->url }}" allowfullscreen="" frameborder="0"></iframe>
             </div>
         </div>
+        @endif
     </aside>
 
 </section>

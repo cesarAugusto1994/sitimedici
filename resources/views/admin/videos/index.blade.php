@@ -3,38 +3,38 @@
 @extends('adminlte::page')
 
 @section('content_header')
-    <h1>Banners</h1>
+    <h1>Videos</h1>
 @stop
 
 @section('content')
     <div class="box box-default">
         <div class="box-header with-border">
-          <h3 class="box-title">Listagem de noticias</h3>
+          <h3 class="box-title">Listagem de videos</h3>
           <div class="box-tools pull-right">
-            <a href="{{ route('banner_create') }}" class="btn btn-xs btn-success">Adicionar</a>
+            <a href="{{ route('video_create') }}" class="btn btn-xs btn-success">Adicionar</a>
           </div>
         </div>
 
         <div class="box-body">
 
-            <table class="table">
+            <table class="table table-striped table-hover">
 
                 <thead>
                     <tr>
-                        <th>Titulo</th>
+                        <th>Link</th>
                         <th>Data</th>
                         <th>Opções</th>
                     </tr>
                 </thead>
 
                 <tbody>
-                    @forelse($banners as $banner)
+                    @forelse($videos as $video)
 
-                    
+
                         <tr>
-                            <td>{{ $banner->titulo }}</td>
-                            <td>{{ $banner->created_at->format('d/m/Y') }}</td>
-                            <td><a class="btn btn-xs btn-link" href="{{ route('banner_destroy', ['id' => $banner->id]) }}">Remover</a></td>
+                            <td>{{ $video->url }}</td>
+                            <td>{{ $video->created_at->format('d/m/Y') }}</td>
+                            <td><a class="btn btn-xs btn-link" href="{{ route('video_destroy', ['id' => $video->id]) }}">Remover</a></td>
                         </tr>
 
 
@@ -44,6 +44,10 @@
 
                     @endforelse
                 </tbody>
+
+                <tfoot>
+                  <tr><td colspan="3">{{ $videos->links() }}</td></tr>
+                </tfoot>
 
             <table>
 

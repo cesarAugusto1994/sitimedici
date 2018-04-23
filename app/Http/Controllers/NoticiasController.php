@@ -16,7 +16,7 @@ class NoticiasController extends Controller
     public function index()
     {
         return view('admin.noticias.index')
-        ->with('noticias', Noticias::all());
+        ->with('noticias', Noticias::paginate());
     }
 
     /**
@@ -213,6 +213,31 @@ class NoticiasController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+      try {
+
+          $noticia = Noticias::findOrFail($id);
+
+          if (file_exists($noticia->imagem_1) === true) {
+              unlink($noticia->imagem_1);
+          }
+
+          if (file_exists($noticia->imagem_2) === true) {
+              unlink($noticia->imagem_2);
+          }
+
+          if (file_exists($noticia->imagem_3) === true) {
+              unlink($noticia->imagem_3);
+          }
+
+          $noticia->delete();
+
+          flash('Noticia removida com sucesso')->success()->important();
+
+      } catch(Exception $e) {
+        flash($e->getMessage())->error()->important();
+      }
+
+      return redirect()->route('noticias');
     }
 }

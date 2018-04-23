@@ -18,6 +18,7 @@ Route::get('/diretoria', 'HomeController@diretoria')->name('diretoria');
 Route::get('/fale-conosco', 'HomeController@faleConosco')->name('fale_conosco');
 Route::get('/noticia/{id}/{titulo}', 'NoticiasController@exibir')->name('noticia_exibir');
 Route::get('/pagina/{id}/{titulo}', 'PaginasController@exibir')->name('pagina_exibir');
+Route::get('/evento/{id}/{titulo}', 'EventosController@exibir')->name('evento_exibir');
 
 Auth::routes();
 
@@ -30,6 +31,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::post('/noticias/store', 'NoticiasController@store')->name('noticia_store');
     Route::post('/noticias/{id}/update', 'NoticiasController@update')->name('noticia_update');
     Route::get('/noticia/{id}', 'NoticiasController@show')->name('noticia');
+    Route::get('/noticia/{id}/destroy', 'NoticiasController@destroy')->name('noticia_destroy');
 
     Route::get('/paginas', 'PaginasController@index')->name('paginas');
     Route::get('/paginas/form/create', 'PaginasController@create')->name('pagina_create');
@@ -52,11 +54,28 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('/servicos/{id}', 'ServicosController@show')->name('servico');
 
     Route::get('/eventos', 'EventosController@index')->name('eventos');
-    Route::get('/eventos/form/create', 'EventosController@create')->name('evento_create');
-    Route::post('/eventos/store', 'EventosController@store')->name('evento_store');
-    Route::get('/eventos/{id}/edit', 'EventosController@edit')->name('evento_edit');
-    Route::post('/eventos/{id}/update', 'EventosController@update')->name('evento_update');
-    Route::get('/eventos/{id}', 'EventosController@show')->name('evento');
+    Route::get('/evento/form/create', 'EventosController@create')->name('evento_create');
+    Route::post('/evento/store', 'EventosController@store')->name('evento_store');
+    Route::get('/evento/{id}/edit', 'EventosController@edit')->name('evento_edit');
+    Route::post('/evento/{id}/update', 'EventosController@update')->name('evento_update');
+    Route::get('/evento/{id}', 'EventosController@show')->name('evento');
+    Route::get('/evento/{id}/destroy', 'EventosController@destroy')->name('evento_destroy');
+
+    Route::get('/videos', 'VideosController@index')->name('videos');
+    Route::get('/video/form/create', 'VideosController@create')->name('video_create');
+    Route::post('/video/store', 'VideosController@store')->name('video_store');
+    Route::get('/video/{id}/edit', 'VideosController@edit')->name('video_edit');
+    Route::post('/video/{id}/update', 'VideosController@update')->name('video_update');
+    Route::get('/video/{id}', 'VideosController@show')->name('video');
+    Route::get('/video/{id}/destroy', 'VideosController@destroy')->name('video_destroy');
+
+    Route::get('/galeria', 'GaleriaController@index')->name('galeria');
+    Route::get('/galeria/form/create', 'GaleriaController@create')->name('galeria_create');
+    Route::post('/galeria/store', 'GaleriaController@store')->name('galeria_store');
+    Route::get('/galeria/{id}/edit', 'GaleriaController@edit')->name('galeria_edit');
+    Route::post('/galeria/{id}/update', 'GaleriaController@update')->name('galeria_update');
+    Route::get('/galeria/{id}', 'GaleriaController@show')->name('galeria_item');
+    Route::get('/galeria/{id}/destroy', 'GaleriaController@destroy')->name('galeria_destroy');
 });
 
 Auth::routes();

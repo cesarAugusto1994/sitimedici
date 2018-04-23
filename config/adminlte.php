@@ -139,13 +139,18 @@ return [
             'url'         => 'admin/eventos',
             'icon'        => 'calendar',
         ],
+        [
+            'text'        => 'Galeria de Fotos',
+            'url'         => 'admin/galeria',
+            'icon'        => 'picture-o',
+        ],
+        [
+            'text'        => 'Videos',
+            'url'         => 'admin/videos',
+            'icon'        => 'video-camera',
+        ],
 
         'Conta',
-        [
-            'text' => 'Perfil',
-            'url'  => '#',
-            'icon' => 'user',
-        ],
         [
             'text' => 'Trocar Senha',
             'url'  => '#',
