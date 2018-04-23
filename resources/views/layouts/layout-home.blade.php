@@ -136,19 +136,15 @@
               <div class="col-lg-4 col-md-6 text-center">
                 <div class="logo" itemscope itemtype="http://schema.org/Brand" style="margin-top:8px">
                     <h1 class="hidden" itemprop="name">Sitimeci</h1>
-                    <a href="#">
-                        <img itemprop="logo" class="site-logo" src="logo/logo2.jpg" data-src="logo/logo2.jpg" alt="main-logo" style="min-width:70%"  />
-                        <img itemprop="logo" class="site-logo-retina" src="logo/logo2.jpg" data-src="logo/logo2.jpg" alt="main-logo" style="min-width:300px"  />
+                    <a href="{{ route('home') }}">
+                        <img itemprop="logo" class="site-logo" src="{{ App\Http\Controllers\HomeController::config()->logo }}" data-src="{{ App\Http\Controllers\HomeController::config()->logo }}" alt="main-logo" style="min-width:70%;max-width:70%"  />
+                        <img itemprop="logo" class="site-logo-retina" src="{{ App\Http\Controllers\HomeController::config()->logo }}" data-src="{{ App\Http\Controllers\HomeController::config()->logo }}" alt="main-logo" style="min-width:70%;max-width:70%"  />
                     </a>
                 </div>
               </div>
               <div class="col-lg-8 text-center">
-                <h3 itemprop="headline text-center text-muted">Sindicato dos Trabalhadores nas Industrias Metalúrgicas, Mecânicas e de Material Elétrico do Sul do Estado do Espirito Santo.</h3>
-                <p>Para agendar homologação, pedir para enviar solicitação por e-mail com nome do funcionário e empresa.
-                    Nosso Horário de funcionamente é de 07:00hrs as 17:00hrs.
-                    E-mail sitimeci@hotmail.com
-                    Telefone: 28 3522-7759
-                    Endereço: Rua Coronel Alziro Viana, Nº 134, Bairro: Aquidabã. CEP 29308110, próximo ao Detran. </p>
+                <h3 itemprop="headline text-center text-muted">{{ App\Http\Controllers\HomeController::config()->nome }}</h3>
+                <p>{!! App\Http\Controllers\HomeController::config()->informacoes !!}</p>
               </div>
             <!--<div class="advertise-790 visible-lg">
                 <a href="#">

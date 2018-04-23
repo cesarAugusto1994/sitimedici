@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\{Categorias, Noticias, Banner, Evento, Servicos, Videos, GaleriaFotos};
+use App\Models\{Categorias, Noticias, Banner, Evento, Servicos, Videos, GaleriaFotos, Configuracoes};
 use App\User;
 
 class HomeController extends Controller
@@ -20,6 +20,16 @@ class HomeController extends Controller
 
         if(!$categorias) {
             session()->put('categorias', Categorias::all());
+        }
+
+        $config = Configuracoes::all();
+
+        if($config->isEmpty()) {
+            $config = new Configuracoes();
+            $config->nome = 'Sindicato dos Trabalhadores nas Industrias Metalúrgicas, Mecânicas e de Material Elétrico do Sul do Estado do Espirito Santo.';
+            $config->informacoes = 'Para agendar homologação, pedir para enviar solicitação por e-mail com nome do funcionário e empresa. Nosso Horário de funcionamente é de 07:00hrs as 17:00hrs. E-mail sitimeci@hotmail.com Telefone: 28 3522-7759 Endereço: Rua Coronel Alziro Viana, Nº 134, Bairro: Aquidabã. CEP 29308110, próximo ao Detran.';
+            $config->logo = 'logo/logo2.jpg';
+            $config->save();
         }
 
     }
@@ -120,6 +130,13 @@ class HomeController extends Controller
         $galeria = GaleriaFotos::all();
 
         return $galeria;
+    }
+
+    public static function config()
+    {
+        $config = Configuracoes::findOrFail(1);
+
+        return $config;
     }
 
     public static function categorias()

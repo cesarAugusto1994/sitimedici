@@ -149,7 +149,11 @@ return [
             'url'         => 'admin/videos',
             'icon'        => 'video-camera',
         ],
-
+        [
+            'text'        => 'Configurações',
+            'url'         => 'admin/configuracoes',
+            'icon'        => 'cogs',
+        ],
         'Conta',
         [
             'text' => 'Trocar Senha',

@@ -76,6 +76,9 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::post('/galeria/{id}/update', 'GaleriaController@update')->name('galeria_update');
     Route::get('/galeria/{id}', 'GaleriaController@show')->name('galeria_item');
     Route::get('/galeria/{id}/destroy', 'GaleriaController@destroy')->name('galeria_destroy');
+
+    Route::get('/configuracoes', 'ConfiguracoesController@index')->name('config');
+    Route::post('/configuracoes/{id}/update', 'ConfiguracoesController@update')->name('config_update');
 });
 
 Auth::routes();

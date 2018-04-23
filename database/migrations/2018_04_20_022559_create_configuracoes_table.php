@@ -16,9 +16,8 @@ class CreateConfiguracoesTable extends Migration
         Schema::create('configuracoes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('logo');
-            $table->integer('logo_altura');
-            $table->integer('logo_largura');
             $table->string('nome');
+            $table->text('informacoes')->nullable();
             $table->timestamps();
         });
     }
