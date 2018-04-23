@@ -9,7 +9,7 @@
 @section('content')
     <div class="box box-default">
         <div class="box-header with-border">
-          <h3 class="box-title">Listagem de noticias</h3>
+          <h3 class="box-title">Listagem de Banners </h3>
           <div class="box-tools pull-right">
             <a href="{{ route('banner_create') }}" class="btn btn-xs btn-success">Adicionar</a>
           </div>
@@ -30,7 +30,7 @@
                 <tbody>
                     @forelse($banners as $banner)
 
-                    
+
                         <tr>
                             <td>{{ $banner->titulo }}</td>
                             <td>{{ $banner->created_at->format('d/m/Y') }}</td>

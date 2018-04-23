@@ -2,7 +2,8 @@
 
 @section('content')
 
-  <h3>{{ $noticia->titulo }}</h3>
+  <h3 itemprop="headline">{{ $noticia->titulo }}</h3>
+  <hr/>
 
   {!! $noticia->conteudo_html !!}
 
