@@ -4,7 +4,7 @@
         <h3 class="hidden">Footer Widgets</h3>
 
         <!--<div class="col-md-4">
-        
+
             <aside class="widget" data-showonscroll="true" data-animation="fadeIn">
                 <div class="widget-title clearfix">
                     <h3 class="hidden">Hidden Title</h3>
@@ -339,11 +339,7 @@
         <h3 class="hidden">Footer Bottom Links</h3>
 
         <div class="col-md-6">
-            <ul>
-                <li><a href="#">Sobre nós</a></li>
-                <li><a href="#">Contato</a></li>
-                <li><a href="#">Politica de Privacidade</a></li>
-            </ul>
+          
         </div>
 
         <div class="col-md-6">
