@@ -1,10 +1,12 @@
 @extends('layouts.layout')
 
+@section('pagina', $pagina->titulo)
+
 @section('content')
 
-  <h3>{{ $pagina->titulo }}</h3>
+  <h1 itemprop="headline">{{ $pagina->titulo }}</h1>
 
-  <hr/>
+  <div class="divider"></div>
 
   {!! $pagina->conteudo !!}
 

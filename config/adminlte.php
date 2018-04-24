@@ -117,17 +117,17 @@ return [
         [
             'text'        => 'Noticias',
             'url'         => 'admin/noticias',
-            'icon'        => 'file-o',
+            'icon'        => 'newspaper-o',
         ],
         [
             'text'        => 'Banners',
             'url'         => 'admin/banners',
-            'icon'        => 'file-o',
+            'icon'        => 'grav',
         ],
         [
             'text'        => 'Páginas',
             'url'         => 'admin/paginas',
-            'icon'        => 'file-o',
+            'icon'        => 'file-text-o',
         ],
         [
             'text'        => 'Serviços',
@@ -153,6 +153,11 @@ return [
             'text'        => 'Configurações',
             'url'         => 'admin/configuracoes',
             'icon'        => 'cogs',
+        ],
+        [
+            'text'        => 'Fale Conosco',
+            'url'         => 'admin/fale-conosco',
+            'icon'        => 'commenting-o',
         ],
         'Conta',
         [

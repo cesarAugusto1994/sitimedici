@@ -18,7 +18,11 @@
                             <a href="#" class="dropdown-toggle" data-hover="dropdown">{{ $categoria->nome }}<span class="nav-line"></span></a>
                             <ul class="dropdown-menu animated fadeInLeft">
                               @foreach($categoria->paginas as $pagina)
-                                <li><a href="{{ route('pagina_exibir', ['id' => $pagina->id, 'titulo' => str_slug($pagina->titulo)]) }}">{{ $pagina->titulo }}</a></li>
+                                @if($pagina->is_link)
+                                    <li><a href="{{ $pagina->url }}">{{ $pagina->titulo }}</a></li>
+                                @else
+                                    <li><a href="{{ route('pagina_exibir', ['id' => $pagina->id, 'titulo' => str_slug($pagina->titulo)]) }}">{{ $pagina->titulo }}</a></li>
+                                @endif
                               @endforeach
                             </ul>
                         </li>

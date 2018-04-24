@@ -1,10 +1,12 @@
 @extends('layouts.layout')
 
+@section('pagina', $evento->nome)
+
 @section('content')
 
-  <h3>{{ $evento->nome }} - {{ $evento->data->format('d/m/Y') }}</h3>
+  <h1 itemprop="headline">{{ $evento->nome }} - {{ $evento->data->format('d/m/Y') }}</h1>
 
-  <hr/>
+  <div class="divider"></div>
 
   {!! $evento->conteudo !!}
 

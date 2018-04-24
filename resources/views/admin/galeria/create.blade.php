@@ -25,18 +25,9 @@
                       </div>
                   </div>
                   <div class="form-group">
-                    <label for="corda" class="col-sm-2 control-label">Imagem</label>
+                    <label for="corda" class="col-sm-2 control-label">Imagem(s)</label>
                     <div class="col-sm-10">
-                      <div class="fileinput fileinput-new" data-provides="fileinput">
-                        <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-                          <img data-src="holder.js/300x200" alt="...">
-                        </div>
-                        <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
-                        <div>
-                          <span class="btn btn-default btn-block btn-file"><span class="fileinput-new">Selecionar Imagem</span><span class="fileinput-exists">Trocar</span><input type="file" name="imagem"></span>
-                          <a href="#" class="btn btn-default btn-block fileinput-exists" data-dismiss="fileinput">Remover</a>
-                        </div>
-                        </div>
+                      <input type="file" multiple name="imagem[]" accept="image/jpeg, image/gif, image/x-png">
                     </div>
                   </div>
 

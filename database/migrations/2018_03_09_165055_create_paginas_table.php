@@ -23,7 +23,9 @@ class CreatePaginasTable extends Migration
         Schema::create('paginas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('titulo');
-            $table->longText('conteudo');
+            $table->string('url')->nullable();
+            $table->boolean('is_link')->default(false);
+            $table->longText('conteudo')->nullable();
             $table->boolean('ativo')->default(true);
             $table->integer('categoria_id')->unsigned();
             $table->foreign('categoria_id')->references('id')->on('categorias');

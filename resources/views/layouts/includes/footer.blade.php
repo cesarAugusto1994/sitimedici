@@ -3,6 +3,20 @@
     <section class="row footer-widgets">
         <h3 class="hidden">Footer Widgets</h3>
 
+
+
+        <aside class="widget" data-showonscroll="true" data-animation="fadeIn">
+            <div class="widget-title clearfix">
+                <h3 class="hidden">Hidden Title</h3>
+            </div>
+
+            <div class="widget-content paddingZero clearfix">
+                <p>{!! App\Http\Controllers\HomeController::config()->informacoes !!}</p>
+            </div>
+        </aside>
+
+
+
         <!--<div class="col-md-4">
 
             <aside class="widget" data-showonscroll="true" data-animation="fadeIn">

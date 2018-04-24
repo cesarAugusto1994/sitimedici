@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Videos;
+use App\Models\FaleConosco;
 
-class VideosController extends Controller
+class FaleConoscoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,16 +14,9 @@ class VideosController extends Controller
      */
     public function index()
     {
-        $videos = Videos::paginate();
+        $contatos = FaleConosco::orderByDesc('created_at')->paginate();
 
-        return view('admin.videos.index', compact('videos'));
-    }
-
-    public function videosIndex()
-    {
-        $videos = Videos::paginate(15);
-
-        return view('paginas.videos', compact('videos'));
+        return view('admin.fale-conosco.index', compact('contatos'));
     }
 
     /**
@@ -33,7 +26,7 @@ class VideosController extends Controller
      */
     public function create()
     {
-        return view('admin.videos.create');
+        //
     }
 
     /**
@@ -44,20 +37,30 @@ class VideosController extends Controller
      */
     public function store(Request $request)
     {
-        try {
-            $data = $request->request->all();
+        $data = $request->request->all();
 
-            $video = new Videos();
-            $video->url = $data['url'];
-            $video->save();
+        $validator = $this->validator($data);
 
-            flash('Video adicionado com sucesso.')->success()->important();
-
-        } catch(Exception $e) {
-            flash($e->getMessage())->error()->important();
+        if($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
         }
 
-        return redirect()->route('videos');
+        FaleConosco::create($data);
+
+        flash('Mensagem envida com sucesso.')->success()->important();
+
+        return redirect()->route('fale_conosco');
+    }
+
+    protected function validator(array $data)
+    {
+        return \Illuminate\Support\Facades\Validator::make($data, [
+            'nome' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255',
+            'telefone' => 'required|string|min:6',
+            'empresa' => 'required|string|min:3',
+            'mensagem' => 'required|string|min:6',
+        ]);
     }
 
     /**
@@ -102,17 +105,6 @@ class VideosController extends Controller
      */
     public function destroy($id)
     {
-        try {
-
-            $video = Videos::findOrFail($id);
-            $video->delete();
-
-            flash('Video removido com sucesso.')->success()->important();
-
-        } catch(Exception $e) {
-            flash($e->getMessage())->error()->important();
-        }
-
-        return redirect()->route('videos');
+        //
     }
 }

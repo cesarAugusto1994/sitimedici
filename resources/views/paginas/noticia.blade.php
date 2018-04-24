@@ -1,9 +1,12 @@
 @extends('layouts.layout')
 
+@section('pagina', $noticia->titulo)
+
 @section('content')
 
-  <h3 itemprop="headline">{{ $noticia->titulo }}</h3>
-  <hr/>
+  <h1 itemprop="headline">{{ $noticia->titulo }}</h1>
+
+  <div class="divider"></div>
 
   {!! $noticia->conteudo_html !!}
 

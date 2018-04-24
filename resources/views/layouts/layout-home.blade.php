@@ -144,7 +144,7 @@
               </div>
               <div class="col-lg-8 text-center">
                 <h3 itemprop="headline text-center text-muted">{{ App\Http\Controllers\HomeController::config()->nome }}</h3>
-                <p>{!! App\Http\Controllers\HomeController::config()->informacoes !!}</p>
+                
               </div>
             <!--<div class="advertise-790 visible-lg">
                 <a href="#">

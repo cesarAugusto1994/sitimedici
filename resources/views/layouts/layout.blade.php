@@ -28,6 +28,8 @@
 
     <link href="{{asset('css/firefox.css')}}" rel="stylesheet" />
 
+    @yield('css')
+
     <script src="{{asset('css/framework/js/modernizr.js')}}"></script>
 </head>
 
@@ -146,7 +148,7 @@
               </div>
               <div class="col-lg-8 text-center">
                 <h3 itemprop="headline text-center text-muted">{{ App\Http\Controllers\HomeController::config()->nome }}</h3>
-                <p>{!! App\Http\Controllers\HomeController::config()->informacoes !!}</p>
+
               </div>
             <!--<div class="advertise-790 visible-lg">
                 <a href="#">
@@ -167,7 +169,18 @@
 
         <div class="row">
 
+          <div class="breadcrumb-container clearfix" itemscope itemtype="http://schema.org/WebPage">
+              <ul class="breadcrumb ltr" itemprop="breadcrumb">
+                  <li><i class="icon-home3"></i> <a href="/">Home</a></li>
+                  <li>@yield('pagina', '')</li>
+              </ul>
+          </div>
+
+          <div class="container">
+
             @yield('content')
+
+          </div>
 
         </div>
 
@@ -211,6 +224,7 @@
     <script src="{{asset('js/holder.js')}}"></script>
     <script src="{{asset('css/framework/js/serpentsoft-scripts.js')}}"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
 
     <script>
         jQuery(function () {

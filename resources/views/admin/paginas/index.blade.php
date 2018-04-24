@@ -23,6 +23,7 @@
                     <tr>
                         <th>Titulo</th>
                         <th>Categoria</th>
+                        <th>Link</th>
                         <th>Data</th>
                     </tr>
                 </thead>
@@ -30,8 +31,9 @@
                 <tbody>
                     @foreach($paginas as $pagina)
                         <tr>
-                            <td><a href="{{ route('pagina', ['id' => $pagina->id]) }}">{{ $pagina->titulo }}</a></td>
-                            <td><a href="{{ route('pagina', ['id' => $pagina->id]) }}">{{ $pagina->categoria->nome }}</a></td>
+                            <td><a href="{{ route('pagina_edit', ['id' => $pagina->id]) }}">{{ $pagina->titulo }}</a></td>
+                            <td>{{ $pagina->categoria->nome }}</td>
+                            <td>{{ $pagina->url }}</td>
                             <td>{{ $pagina->created_at->format('d/m/Y') }}</td>
                         </tr>
                     @endforeach

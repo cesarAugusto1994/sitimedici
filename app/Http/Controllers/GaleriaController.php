@@ -19,6 +19,13 @@ class GaleriaController extends Controller
         return view('admin.galeria.index', compact('galeria'));
     }
 
+    public function galeriaIndex()
+    {
+        $galeria = GaleriaFotos::orderByDesc('id')->paginate(24);
+
+        return view('paginas.galeria', compact('galeria'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -40,27 +47,36 @@ class GaleriaController extends Controller
         try {
             $data = $request->request->all();
 
-            $galeria = new GaleriaFotos();
-
-            $galeria->titulo = $data['titulo'];
-
-            if(!empty($_FILES['imagem']) && !empty($_FILES['imagem']['name'])) {
-
-              $destino = "img/" . $_FILES['imagem']['name'];
-              $arquivo_tmp = $_FILES['imagem']['tmp_name'];
-
-              move_uploaded_file( $arquivo_tmp, $destino  );
-
-              $galeria->link = $destino;
-
-            } else {
+            if(empty($_FILES['imagem']) && empty($_FILES['imagem']['name'])) {
                 flash('Adicione uma imagem.')->error()->important();
                 return back();
             }
 
-              $galeria->save();
+            #dd($_FILES['imagem']);
 
-              flash('Imagem adicionada com sucesso.')->success()->important();
+            $arquivos = $_FILES['imagem'];
+
+            foreach ($arquivos['name'] as $key => $item) {
+
+                if(empty($item)) {
+                  continue;
+                }
+
+                $galeria = new GaleriaFotos();
+                $galeria->titulo = $data['titulo'];
+
+                $destino = "img/$item";
+                $arquivo_tmp = $arquivos['tmp_name'][$key];
+
+                move_uploaded_file( $arquivo_tmp, $destino  );
+
+                $galeria->link = $destino;
+                $galeria->save();
+
+            }
+
+
+            flash('Imagem adicionada com sucesso.')->success()->important();
 
         } catch(Exception $e) {
             flash($e->getMessage())->error()->important();

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\{Categorias, Noticias, Banner, Evento, Servicos, Videos, GaleriaFotos, Configuracoes};
+use App\Models\{Categorias, Noticias, Banner, Evento, Servicos, Videos, GaleriaFotos, Configuracoes, Paginas};
 use App\User;
 
 class HomeController extends Controller
@@ -151,6 +151,13 @@ class HomeController extends Controller
         $config = Configuracoes::findOrFail(1);
 
         return $config;
+    }
+
+    public static function faleConoscoConteudo()
+    {
+        $pagina = Paginas::where('titulo', 'Fale Conosco')->get();
+
+        return $pagina->first();
     }
 
     public static function categorias()

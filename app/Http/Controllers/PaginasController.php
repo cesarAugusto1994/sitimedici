@@ -41,7 +41,42 @@ class PaginasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      try {
+
+          $data = $request->request->all();
+
+          $pagina = new Paginas();
+
+          $pagina->titulo = $data['titulo'];
+          $pagina->categoria_id = $data['categoria_id'];
+          $pagina->conteudo = $data['conteudo'];
+
+          $pagina->url = $data['url'];
+
+          if($data['url']) {
+            $pagina->is_link = true;
+          } else {
+            $pagina->is_link = false;
+          }
+
+          $pagina->save();
+
+          return response()->json(
+              [
+                  'code' => 201,
+                  'message' => 'salvo com sucesso',
+              ]
+          );
+
+        } catch (Exception $e) {
+
+          return response()->json([
+                  'code' => $e->getCode(),
+                  'message' => $e->getMessage(),
+              ]
+          );
+
+        }
     }
 
     /**
@@ -97,6 +132,14 @@ class PaginasController extends Controller
           $pagina->titulo = $data['titulo'];
           $pagina->categoria_id = $data['categoria_id'];
           $pagina->conteudo = $data['conteudo'];
+
+          $pagina->url = $data['url'];
+
+          if($data['url']) {
+            $pagina->is_link = true;
+          } else {
+            $pagina->is_link = false;
+          }
 
           $pagina->save();
 

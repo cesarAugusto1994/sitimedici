@@ -18,9 +18,7 @@ class ServicosTableSeeder extends Seeder
           'Boletos',
           'Sindicalize-se',
           'Agenda de Homologação',
-          'Consultar Processo',
           'Convenios',
-          'Deixe seu Curriculo',
           'Fale Conosco'
         ];
 

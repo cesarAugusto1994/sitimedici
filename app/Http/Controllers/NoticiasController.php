@@ -19,6 +19,12 @@ class NoticiasController extends Controller
         ->with('noticias', Noticias::paginate());
     }
 
+    public function noticiasIndex()
+    {
+        return view('paginas.noticias')
+        ->with('noticias', Noticias::orderByDesc('id')->paginate(5));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

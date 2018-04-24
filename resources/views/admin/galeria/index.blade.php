@@ -55,6 +55,10 @@
                     @endforelse
                 </tbody>
 
+                <tfoot>
+                    <tr><td colspan="3">{{ $galeria->links() }}</td></tr>
+                </tfoot>
+
             <table>
 
         </div>

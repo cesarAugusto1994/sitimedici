@@ -56,11 +56,6 @@ class PaginasTableSeeder extends Seeder
                 'categoria_id' => 4,
             ],
             [
-                'nome' => 'Blog',
-                'url' => '#',
-                'categoria_id' => 4,
-            ],
-            [
                 'nome' => 'Noticias',
                 'url' => '#',
                 'categoria_id' => 4,

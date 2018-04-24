@@ -21,6 +21,12 @@ Route::get('/pagina/{id}/{titulo}', 'PaginasController@exibir')->name('pagina_ex
 Route::get('/evento/{id}/{titulo}', 'EventosController@exibir')->name('evento_exibir');
 Route::get('/pesquisa', 'HomeController@pesquisar')->name('pesquisar');
 
+Route::get('/videos', 'VideosController@videosIndex')->name('videos_index');
+Route::get('/galeria-fotos', 'GaleriaController@galeriaIndex')->name('galeria_fotos_index');
+Route::get('/noticias', 'NoticiasController@noticiasIndex')->name('noticias_index');
+
+Route::post('/fale-conosco/store', 'FaleConoscoController@store')->name('fale_conosco_store');
+
 Auth::routes();
 
 Route::prefix('admin')->middleware('auth')->group(function () {
@@ -80,6 +86,8 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 
     Route::get('/configuracoes', 'ConfiguracoesController@index')->name('config');
     Route::post('/configuracoes/{id}/update', 'ConfiguracoesController@update')->name('config_update');
+
+    Route::get('/fale-conosco', 'FaleConoscoController@index')->name('fale_conosco_index');
 });
 
 Auth::routes();
