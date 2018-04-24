@@ -18,6 +18,7 @@ class CreateConfiguracoesTable extends Migration
             $table->string('logo');
             $table->string('nome');
             $table->text('informacoes')->nullable();
+            $table->string('background')->nullable();
             $table->timestamps();
         });
     }

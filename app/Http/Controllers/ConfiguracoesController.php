@@ -89,6 +89,16 @@ class ConfiguracoesController extends Controller
             $config->logo = $destino;
           }
 
+          if(!empty($_FILES['background']) && !empty($_FILES['background']['name'])) {
+
+            $destino = "img/" . $_FILES['background']['name'];
+            $arquivo_tmp = $_FILES['background']['tmp_name'];
+
+            move_uploaded_file( $arquivo_tmp, $destino  );
+
+            $config->background = $destino;
+          }
+          
           $config->save();
 
           flash('Salvo com sucesso.')->success()->important();

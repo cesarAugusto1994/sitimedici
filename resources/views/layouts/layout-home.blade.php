@@ -27,6 +27,12 @@
 
     <link href="{{asset('css/firefox.css')}}" rel="stylesheet" />
 
+    <style>
+      .background-main {
+        background: url('{{ App\Http\Controllers\HomeController::config()->background }}')
+      }
+    </style>
+
     <script src="{{asset('css/framework/js/modernizr.js')}}"></script>
 </head>
 
@@ -55,7 +61,7 @@
                 <div id="social-menu-navbar-collapse" class="collapse navbar-collapse">
 
                     <ul class="nav navbar-nav navbar-left visible-lg visible-md">
-                        <li class="color-theme active"><a href="#">Inicio <span class="nav-line"></span></a></li>
+                        <li class="color-theme active"><a href="{{ route('home') }}">Inicio <span class="nav-line"></span></a></li>
                         <li class="color-2"><a target="_blank" href="{{ route('home_admin') }}">Administrativo <span class="nav-line"></span></a></li>
                     </ul>
 
@@ -144,7 +150,7 @@
               </div>
               <div class="col-lg-8 text-center">
                 <h3 itemprop="headline text-center text-muted">{{ App\Http\Controllers\HomeController::config()->nome }}</h3>
-                
+
               </div>
             <!--<div class="advertise-790 visible-lg">
                 <a href="#">

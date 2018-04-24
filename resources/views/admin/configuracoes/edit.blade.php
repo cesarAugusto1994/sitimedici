@@ -48,6 +48,23 @@
                     </div>
                   </div>
 
+                  <div class="form-group">
+                    <label for="corda" class="col-sm-2 control-label">Plano de Fundo</label>
+                    <div class="col-sm-10">
+                      <div class="fileinput fileinput-new" data-provides="fileinput">
+                        <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                          <img data-src="/{{ $config->background }}" src="/{{ $config->background }}"  alt="...">
+                        </div>
+                        <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
+                        <div>
+                          <span class="btn btn-default btn-block btn-file"><span class="fileinput-new">Selecionar Imagem</span>
+                          <span class="fileinput-exists">Trocar</span><input value="/{{ $config->background }}" type="file" name="background"></span>
+                          <a href="#" class="btn btn-default btn-block fileinput-exists" data-dismiss="fileinput">Remover</a>
+                        </div>
+                        </div>
+                    </div>
+                  </div>
+
 
               </div>
 
