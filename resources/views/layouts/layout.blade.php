@@ -28,12 +28,6 @@
 
     <link href="{{asset('css/firefox.css')}}" rel="stylesheet" />
 
-    <style>
-      .background-main {
-        background: url('/{{ App\Http\Controllers\HomeController::config()->background }}')
-      }
-    </style>
-
     @yield('css')
 
     <script src="{{asset('css/framework/js/modernizr.js')}}"></script>

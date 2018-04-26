@@ -24,6 +24,8 @@ Route::get('/pesquisa', 'HomeController@pesquisar')->name('pesquisar');
 Route::get('/videos', 'VideosController@videosIndex')->name('videos_index');
 Route::get('/galeria-fotos', 'GaleriaController@galeriaIndex')->name('galeria_fotos_index');
 Route::get('/noticias', 'NoticiasController@noticiasIndex')->name('noticias_index');
+Route::get('/sindicalize-se', 'SindicalizarController@sindicalize')->name('sindicalize');
+Route::post('/sindicalize-se/store', 'SindicalizarController@store')->name('sindicalize_store');
 
 Route::post('/fale-conosco/store', 'FaleConoscoController@store')->name('fale_conosco_store');
 
@@ -88,6 +90,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::post('/configuracoes/{id}/update', 'ConfiguracoesController@update')->name('config_update');
 
     Route::get('/fale-conosco', 'FaleConoscoController@index')->name('fale_conosco_index');
+    Route::get('/sindicalize-se', 'SindicalizarController@index')->name('sindicalize_index');
 });
 
 Auth::routes();

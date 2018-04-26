@@ -159,6 +159,12 @@ return [
             'url'         => 'admin/fale-conosco',
             'icon'        => 'commenting-o',
         ],
+        [
+            'text'        => 'Sindicalize-se',
+            'url'         => 'admin/sindicalize-se',
+            'icon'        => 'cog',
+        ],
+
         'Conta',
         [
             'text' => 'Trocar Senha',
