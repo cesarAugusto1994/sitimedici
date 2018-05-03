@@ -49,6 +49,17 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::post('/paginas/{id}/update', 'PaginasController@update')->name('pagina_update');
     Route::get('/paginas/{id}', 'PaginasController@show')->name('pagina');
 
+    Route::get('/usuarios', 'UserController@index')->name('usuarios');
+    Route::get('/usuario/form/create', 'UserController@create')->name('usuario_create');
+    Route::post('/usuario/store', 'UserController@store')->name('usuario_store');
+    Route::get('/usuario/{id}/edit', 'UserController@edit')->name('usuario_edit');
+    Route::get('/usuario/{id}/edit/password', 'UserController@editPassword')->name('usuario_edit_password');
+    Route::get('/usuario/password/home', 'UserController@editPasswordHome')->name('usuario_edit_password_home');
+    Route::post('/usuario/{id}/update', 'UserController@update')->name('usuario_update');
+    Route::post('/usuario/{id}/update/password', 'UserController@updatePassword')->name('usuario_update_password');
+    Route::get('/usuario/{id}', 'UserController@show')->name('usuario');
+    Route::get('/usuario/{id}/status', 'UserController@changeSituation')->name('usuario_status');
+
     Route::get('/banners', 'BannerController@index')->name('banners');
     Route::get('/banners/{id}/edit', 'BannerController@edit')->name('banner_edit');
     Route::get('/banners/form/create', 'BannerController@create')->name('banner_create');

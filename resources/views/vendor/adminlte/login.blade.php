@@ -16,6 +16,13 @@
         <!-- /.login-logo -->
         <div class="login-box-body">
             <p class="login-box-msg">{{ trans('adminlte::adminlte.login_message') }}</p>
+
+            @foreach ($errors->all() as $error)
+
+                <div class="alert alert-danger">{{ $error }}</div>
+
+            @endforeach
+
             <form action="{{ url(config('adminlte.login_url', 'login')) }}" method="post">
                 {!! csrf_field() !!}
 
@@ -55,7 +62,7 @@
                     <!-- /.col -->
                 </div>
             </form>
-            <div class="auth-links">
+            <!--<div class="auth-links">
                 <a href="{{ url(config('adminlte.password_reset_url', 'password/reset')) }}"
                    class="text-center"
                 >{{ trans('adminlte::adminlte.i_forgot_my_password') }}</a>
@@ -65,7 +72,7 @@
                        class="text-center"
                     >{{ trans('adminlte::adminlte.register_a_new_membership') }}</a>
                 @endif
-            </div>
+            </div>-->
         </div>
         <!-- /.login-box-body -->
     </div><!-- /.login-box -->

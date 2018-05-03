@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Paginas;
+use Auth;
+use Redirect;
 
 class AdminController extends Controller
 {
@@ -24,6 +26,11 @@ class AdminController extends Controller
      */
     public function index()
     {
+        if(!Auth::user()->active) {
+          Auth::logout();
+          return Redirect::route('login')->withErrors('Desculpe, mas o Usuário está desativado, entre em contato com o Administrador.');
+        }
+
         return view('admin.index');
     }
 

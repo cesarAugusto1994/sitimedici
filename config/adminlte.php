@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'skin' => 'purple-light',
+    'skin' => 'black',
 
     /*
     |--------------------------------------------------------------------------
@@ -164,11 +164,16 @@ return [
             'url'         => 'admin/sindicalize-se',
             'icon'        => 'cog',
         ],
+        [
+            'text'        => 'Usuários',
+            'url'         => 'admin/usuarios',
+            'icon'        => 'users',
+        ],
 
         'Conta',
         [
             'text' => 'Trocar Senha',
-            'url'  => '#',
+            'url'  => 'admin/usuario/password/home',
             'icon' => 'lock',
         ],
 

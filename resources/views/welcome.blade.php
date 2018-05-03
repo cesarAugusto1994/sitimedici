@@ -37,7 +37,7 @@
 
                         <div class="meta-info">
                             <span class="author"><i class="icon-user3"></i><a href="#">{{ \App\Http\Controllers\HomeController::getNoticiaPrincipal()->user->name }}</a></span>
-                            <span class="date-time"><i class="icon-alarm2"></i>{{ \App\Http\Controllers\HomeController::getNoticiaPrincipal()->created_at->format('d M Y, H:i') }}</span>
+                            <span class="date-time"><i class="icon-alarm2"></i>{{ \App\Http\Controllers\HomeController::getNoticiaPrincipal()->created_at->format('d/m/Y, H:i') }}</span>
                         </div>
 
 
@@ -78,7 +78,7 @@
                                         <div class="meta-info">
 
                                             <span class="author"><i class="icon-user3"></i><a href="#">{{ $noticia->user->name }}</a></span>
-                                            <span class="date"><i class="icon-alarm2"></i>{{ $noticia->created_at->format('d M Y, H:i') }}</span>
+                                            <span class="date"><i class="icon-alarm2"></i>{{ $noticia->created_at->format('d/m/Y, H:i') }}</span>
 
                                         </div>
 
@@ -110,7 +110,7 @@
                                         <div class="meta-info">
 
                                             <span class="author"><i class="icon-user3"></i><a href="#">{{ $noticia->user->name }}</a></span>
-                                            <span class="date"><i class="icon-alarm2"></i>{{ $noticia->created_at->format('d M Y, H:i') }}</span>
+                                            <span class="date"><i class="icon-alarm2"></i>{{ $noticia->created_at->format('d/m/Y, H:i') }}</span>
 
                                         </div>
 
@@ -160,7 +160,7 @@
                                 <h4 class="post-title"><a href="{{ route('evento_exibir', ['id' => $evento->id, 'nome' => $evento->nome]) }}">{{ $evento->nome }}</a></h4>
 
                                 <div class="meta-info">
-                                    <span class="date"><i class="icon-calendar"></i>{{ $evento->data->format('d M Y') }}</span>
+                                    <span class="date"><i class="icon-calendar"></i>{{ $evento->data->format('d/m/Y') }}</span>
                                 </div>
 
                             </header>

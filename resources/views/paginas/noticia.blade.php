@@ -4,9 +4,16 @@
 
 @section('content')
 
-  <h1 itemprop="headline">{{ $noticia->titulo }}</h1>
+  <h2 itemprop="headline">{{ $noticia->titulo }}</h2>
+
+  <hr/>
+
+  @if($noticia->subtitulo)
+      <q>{{ $noticia->subtitulo }}</q>
+  @endif
 
   <div class="divider"></div>
+  <hr/>
 
   {!! $noticia->conteudo_html !!}
 
