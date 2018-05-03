@@ -11,7 +11,7 @@
 @section('content')
 
 <div class="row">
-    <div class="col-md-2">
+    <div class="col-md-3">
       <div class="box box-widget widget-user">
         <div class="widget-user-header bg-red">
           <h3 class="widget-user-username">Noticias</h3>
@@ -28,7 +28,7 @@
       </div>
     </div>
 
-    <div class="col-md-2">
+    <div class="col-md-3">
       <div class="box box-widget widget-user">
         <div class="widget-user-header bg-aqua-active">
           <h3 class="widget-user-username">Banners</h3>
@@ -45,7 +45,7 @@
       </div>
     </div>
 
-    <div class="col-md-2">
+    <div class="col-md-3">
       <div class="box box-widget widget-user">
         <div class="widget-user-header bg-yellow">
           <h3 class="widget-user-username">Páginas</h3>
@@ -62,7 +62,7 @@
       </div>
     </div>
 
-    <div class="col-md-2">
+    <div class="col-md-3">
       <div class="box box-widget widget-user">
         <div class="widget-user-header bg-green">
           <h3 class="widget-user-username">Serviços</h3>
@@ -79,7 +79,7 @@
       </div>
     </div>
 
-    <div class="col-md-2">
+    <div class="col-md-3">
       <div class="box box-widget widget-user">
         <div class="widget-user-header bg-black">
           <h3 class="widget-user-username">Eventos</h3>
@@ -96,7 +96,7 @@
       </div>
     </div>
 
-    <div class="col-md-2">
+    <div class="col-md-3">
       <div class="box box-widget widget-user">
         <div class="widget-user-header bg-blue">
           <h3 class="widget-user-username">Galeria de Fotos</h3>
@@ -113,7 +113,7 @@
       </div>
     </div>
 
-    <div class="col-md-2">
+    <div class="col-md-3">
       <div class="box box-widget widget-user">
         <div class="widget-user-header bg-purple">
           <h3 class="widget-user-username">Videos</h3>
@@ -130,7 +130,7 @@
       </div>
     </div>
 
-    <div class="col-md-2">
+    <div class="col-md-3">
       <div class="box box-widget widget-user">
         <div class="widget-user-header bg-red">
           <h3 class="widget-user-username">Configurações</h3>
@@ -147,7 +147,7 @@
       </div>
     </div>
 
-    <div class="col-md-2">
+    <div class="col-md-3">
       <div class="box box-widget widget-user">
         <div class="widget-user-header bg-green">
           <h3 class="widget-user-username">Fale Conosco</h3>
@@ -164,7 +164,7 @@
       </div>
     </div>
 
-    <div class="col-md-2">
+    <div class="col-md-3">
       <div class="box box-widget widget-user">
         <div class="widget-user-header bg-blue">
           <h3 class="widget-user-username">Sindicalize-se</h3>
@@ -181,7 +181,7 @@
       </div>
     </div>
 
-    <div class="col-md-2">
+    <div class="col-md-3">
       <div class="box box-widget widget-user">
         <div class="widget-user-header bg-yellow">
           <h3 class="widget-user-username">Usuários</h3>
