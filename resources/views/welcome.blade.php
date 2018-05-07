@@ -221,7 +221,7 @@
                     <li class="post-item">
                         <article class="post-box clearfix">
                             <div class="wdg-col-8 sec-title">
-                                <h5><a target="_blank" href="{{ $servico->url }}" title="">{{ $servico->nome }}</a></h5>
+                                <h5><a href="{{ $servico->url }}" title="">{{ $servico->nome }}</a></h5>
                             </div>
                         </article>
                     </li>
