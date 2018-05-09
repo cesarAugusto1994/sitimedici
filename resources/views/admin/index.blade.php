@@ -105,7 +105,7 @@
           <div class="row">
             <div class="col-sm-12 border-right">
               <div class="description-block">
-                <a href="{{ route('paginas') }}" class="btn btn-default btn-block">Acessar</a>
+                <a href="{{ route('galeria') }}" class="btn btn-default btn-block">Acessar</a>
               </div>
             </div>
           </div>

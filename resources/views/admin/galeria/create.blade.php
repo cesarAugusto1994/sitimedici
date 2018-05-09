@@ -19,7 +19,7 @@
           <div class="row">
               <div class="col-lg-12 col-md-12">
                   <div class="form-group">
-                    <label class="col-sm-2 control-label">Titulo</label>
+                    <label class="col-sm-2 control-label">Nome da Galeria</label>
                       <div class="col-sm-10">
                         <input type="text" name="titulo" required class="form-control">
                       </div>

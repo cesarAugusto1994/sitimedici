@@ -23,6 +23,8 @@ Route::get('/pesquisa', 'HomeController@pesquisar')->name('pesquisar');
 
 Route::get('/videos', 'VideosController@videosIndex')->name('videos_index');
 Route::get('/galeria-fotos', 'GaleriaController@galeriaIndex')->name('galeria_fotos_index');
+Route::get('/galeria-fotos/{id}', 'GaleriaController@galeriaItemIndex')->name('galeria_item_index');
+
 Route::get('/noticias', 'NoticiasController@noticiasIndex')->name('noticias_index');
 Route::get('/sindicalize-se', 'SindicalizarController@sindicalize')->name('sindicalize');
 Route::post('/sindicalize-se/store', 'SindicalizarController@store')->name('sindicalize_store');

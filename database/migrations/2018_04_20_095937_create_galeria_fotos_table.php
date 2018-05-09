@@ -13,10 +13,18 @@ class CreateGaleriaFotosTable extends Migration
      */
     public function up()
     {
+        Schema::create('galeria', function (Blueprint $table) {
+          $table->increments('id');
+          $table->string('titulo');
+          $table->timestamps();
+        });
+
         Schema::create('galeria_fotos', function (Blueprint $table) {
           $table->increments('id');
           $table->string('titulo');
           $table->string('link');
+          $table->integer('galeria_id')->unsigned();
+          $table->foreign('galeria_id')->references('id')->on('galeria');
           $table->timestamps();
         });
     }

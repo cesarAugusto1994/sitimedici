@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\GaleriaFotos;
+use App\Models\{GaleriaFotos, Galeria};
 
 class GaleriaController extends Controller
 {
@@ -21,9 +21,16 @@ class GaleriaController extends Controller
 
     public function galeriaIndex()
     {
-        $galeria = GaleriaFotos::orderByDesc('id')->paginate(24);
+        $galerias = Galeria::orderByDesc('id')->paginate();
 
-        return view('paginas.galeria', compact('galeria'));
+        return view('paginas.galeria', compact('galerias'));
+    }
+
+    public function galeriaItemIndex($id)
+    {
+      $galeria = GaleriaFotos::where('galeria_id', $id)->get();
+
+      return view('paginas.galeria-item', compact('galeria'));
     }
 
     /**
@@ -56,22 +63,31 @@ class GaleriaController extends Controller
 
             $arquivos = $_FILES['imagem'];
 
+            $galeria = new Galeria();
+            $galeria->titulo = $data['titulo'];
+            $galeria->save();
+
             foreach ($arquivos['name'] as $key => $item) {
 
                 if(empty($item)) {
                   continue;
                 }
 
-                $galeria = new GaleriaFotos();
-                $galeria->titulo = $data['titulo'];
+                $foto = new GaleriaFotos();
+                $foto->titulo = $data['titulo'];
+
+                if(!is_dir('img/')) {
+                    mkdir('img/', 0755);
+                }
 
                 $destino = "img/$item";
                 $arquivo_tmp = $arquivos['tmp_name'][$key];
 
                 move_uploaded_file( $arquivo_tmp, $destino  );
 
-                $galeria->link = $destino;
-                $galeria->save();
+                $foto->link = $destino;
+                $foto->galeria_id = $galeria->id;
+                $foto->save();
 
             }
 
@@ -93,7 +109,9 @@ class GaleriaController extends Controller
      */
     public function show($id)
     {
-        //
+      $galeria = GaleriaFotos::where('galeria_id', $id)->get();
+
+      return view('paginas.galeria-item', compact('galeria'));
     }
 
     /**

@@ -14,19 +14,14 @@
 
     <div class="widget-content clearfix">
         <div class="wdg-news-in-pictures clearfix">
-            <ul class="clearfix">
-
-              @foreach($galeria as $foto)
-                <li class="tooltip_item post-thumbnail" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{ $foto->titulo }}">
-                    <a data-lightbox="example-set" href="/{{ $foto->link }}" data-title="{{ $foto->titulo }}">
-                        <img src="/{{ $foto->link }}" alt="{{ $loop->index }}">
-                    </a>
-                </li>
+              @foreach($galerias as $galeria)
+                  <a href="{{ route('galeria_item_index', ['id' => $galeria->id]) }}">{{ $galeria->titulo }}</a>
+                  <small><i class="fa fa-clock"></i> {{ $galeria->created_at->format('d/m/Y') }}</small>
+                  <hr/>
               @endforeach
-            </ul>
         </div>
 
-        <div class="text-center">{{ $galeria->links() }}</div>
+        <div class="text-center">{{ $galerias->links() }}</div>
 
     </div>
 </aside>

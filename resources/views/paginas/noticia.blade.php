@@ -13,8 +13,10 @@
   @endif
 
   <div class="divider"></div>
-  <hr/>
 
   {!! $noticia->conteudo_html !!}
+
+  <div class="divider"></div>
+  <hr/>
 
 @endsection
